@@ -4,8 +4,9 @@
 #include "VarDeclaration.h"
 #include "RValue.h"
 
-#include <string>
+#include <memory>
 
+using namespace std;
 
 namespace ast
 {
@@ -13,12 +14,13 @@ namespace ast
 class CurrVarDeclaration : VarDeclaration
 {
 public:
-    CurrVarDeclaration(string currency, string name, RValue asgRValue, string asgVarName);
-    void execute() const override;
+    CurrVarDeclaration(string currency, string name, unique_ptr<RValue> asgRValue);
+    CurrVarDeclaration(string currency, string name, string asgVarName);
+    int execute() const override;
 private:
     string currency;
     string name;
-    RValue assignmentRValue;
+    unique_ptr<RValue> assignmentRValue;
     string assignmentVarName;
 
 };

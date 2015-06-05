@@ -11,6 +11,7 @@ class Instruction : InputInstruction
 {
 public:
     virtual ~Instruction();
+    virtual int execute() const = 0;
 private:
 
 };

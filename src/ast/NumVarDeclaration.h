@@ -1,11 +1,12 @@
 #ifndef NUMVARDECLARATION_H
 #define	NUMVARDECLARATION_H
 
-#include <string>
+#include <memory>
 
 #include "VarDeclaration.h"
 #include "RValue.h"
 
+using namespace std;
 
 namespace ast
 {
@@ -13,11 +14,12 @@ namespace ast
 class NumVarDeclaration : VarDeclaration
 {
 public:
-    NumVarDeclaration(string name, RValue asgRValue, string asgVarName);
-    void execute() const override;
+    NumVarDeclaration(string name, unique_ptr<RValue> *asgRValue);
+    NumVarDeclaration(string name, string asgVarName);
+    int execute() const override;
 private:
     string name;
-    RValue assignmentRValue;
+    unique_ptr<RValue> assignmentRValue;
     string assignmentVarName;
 
 };
