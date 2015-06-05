@@ -12,7 +12,8 @@ namespace ast
 class Assignment : Instruction
 {
 public:
-    
+    int execute() const override;
+
 private:
     string varToChange;
     RValue rvalue;

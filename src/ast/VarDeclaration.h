@@ -10,7 +10,7 @@ class VarDeclaration : Instruction
 {
 public:
     virtual ~VarDeclaration();
-    virtual int execute() const = 0;
+    //virtual int execute() const = 0;
 private:
 
 };

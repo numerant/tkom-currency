@@ -17,6 +17,7 @@ public:
     NumVarDeclaration(string name, unique_ptr<RValue> *asgRValue);
     NumVarDeclaration(string name, string asgVarName);
     int execute() const override;
+
 private:
     string name;
     unique_ptr<RValue> assignmentRValue;
