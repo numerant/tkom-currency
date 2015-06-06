@@ -17,7 +17,7 @@ namespace parser
     private:
         /* Parsing methods */
         std::unique_ptr<ast::Program> readProgram();
-        std::unique_ptr<ast::Program> readInstructionLink(std::unique_ptr<ast::Program> leftInstr);
+        std::unique_ptr<ast::Program> readInstructionLink(std::unique_ptr<ast::Program> leftOperand);
         std::unique_ptr<ast::Program> readInputInstr();
 
         /* Helper methods */

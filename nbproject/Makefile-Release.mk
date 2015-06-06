@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/CurrVarDeclaration.o \
 	${OBJECTDIR}/src/ast/InputInstruction.o \
 	${OBJECTDIR}/src/ast/Instruction.o \
+	${OBJECTDIR}/src/ast/InstructionLink.o \
 	${OBJECTDIR}/src/ast/NumVarDeclaration.o \
 	${OBJECTDIR}/src/ast/Operator.o \
 	${OBJECTDIR}/src/ast/PrintVar.o \
@@ -100,6 +101,11 @@ ${OBJECTDIR}/src/ast/Instruction.o: src/ast/Instruction.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Instruction.o src/ast/Instruction.cpp
+
+${OBJECTDIR}/src/ast/InstructionLink.o: src/ast/InstructionLink.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/InstructionLink.o src/ast/InstructionLink.cpp
 
 ${OBJECTDIR}/src/ast/NumVarDeclaration.o: src/ast/NumVarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
