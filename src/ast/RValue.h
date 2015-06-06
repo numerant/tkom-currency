@@ -4,13 +4,13 @@
 namespace ast
 {
 
-class RValue
-{
-public:
-    virtual ~RValue();
-private:
+    class RValue
+    {
+    public:
+        virtual ~RValue();
+    private:
 
-};
+    };
 
 }
 #endif	/* RVALUE_H */

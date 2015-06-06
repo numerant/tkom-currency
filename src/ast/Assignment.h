@@ -9,18 +9,18 @@ using namespace std;
 namespace ast
 {
 
-class Assignment : Instruction
-{
-public:
-    //int execute() const override;
+    class Assignment : Instruction
+    {
+    public:
+        //int execute() const override;
 
-private:
-    string varToChange;
-    RValue rvalue;
-    string newVar;
-    //FuncCall function;
+    private:
+        string varToChange;
+        RValue rvalue;
+        string newVar;
+        //FuncCall function;
 
-};
+    };
 
 } /* namespace ast */
 #endif	/* ASSIGNMENT_H */

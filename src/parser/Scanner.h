@@ -21,12 +21,13 @@ namespace parser
     private:
         std::istream& in;
         Token token;
-        
+
         void ignoreWhitespaces();
-        bool tryBrace();
+        bool tryBracket();
         bool tryOperator();
         bool trySpecial();
         bool tryAlphaNum();
+        bool tryEof();
 
     };
 

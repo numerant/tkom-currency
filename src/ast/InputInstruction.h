@@ -6,12 +6,13 @@
 namespace ast
 {
 
-class InputInstruction {
-public:
-//    virtual ~InputInstruction();
-private:
+    class InputInstruction
+    {
+    public:
+        //    virtual ~InputInstruction();
+    private:
 
-};
+    };
 
 } /* namespace ast */
 

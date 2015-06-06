@@ -6,13 +6,13 @@
 namespace ast
 {
 
-class VarDeclaration : Instruction
-{
-public:
-    virtual ~VarDeclaration();
-private:
+    class VarDeclaration : Instruction
+    {
+    public:
+        virtual ~VarDeclaration();
+    private:
 
-};
+    };
 
 } /* namespace ast */
 #endif	/* VARDECLARATION_H */

@@ -36,10 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Assignment.o \
+	${OBJECTDIR}/src/ast/Bracket.o \
 	${OBJECTDIR}/src/ast/CurrVarDeclaration.o \
 	${OBJECTDIR}/src/ast/InputInstruction.o \
 	${OBJECTDIR}/src/ast/Instruction.o \
 	${OBJECTDIR}/src/ast/NumVarDeclaration.o \
+	${OBJECTDIR}/src/ast/Operator.o \
 	${OBJECTDIR}/src/ast/PrintVar.o \
 	${OBJECTDIR}/src/ast/RValue.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
@@ -77,6 +79,11 @@ ${OBJECTDIR}/src/ast/Assignment.o: src/ast/Assignment.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Assignment.o src/ast/Assignment.cpp
 
+${OBJECTDIR}/src/ast/Bracket.o: src/ast/Bracket.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Bracket.o src/ast/Bracket.cpp
+
 ${OBJECTDIR}/src/ast/CurrVarDeclaration.o: src/ast/CurrVarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
@@ -96,6 +103,11 @@ ${OBJECTDIR}/src/ast/NumVarDeclaration.o: src/ast/NumVarDeclaration.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/NumVarDeclaration.o src/ast/NumVarDeclaration.cpp
+
+${OBJECTDIR}/src/ast/Operator.o: src/ast/Operator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Operator.o src/ast/Operator.cpp
 
 ${OBJECTDIR}/src/ast/PrintVar.o: src/ast/PrintVar.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast

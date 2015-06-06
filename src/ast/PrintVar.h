@@ -10,15 +10,15 @@ using namespace std;
 namespace ast
 {
 
-class PrintVar : Instruction
-{
-public:
-    PrintVar(string varName);
-    //int execute() const override;
+    class PrintVar : Instruction
+    {
+    public:
+        PrintVar(string varName);
+        //int execute() const override;
 
-private:
-    string varName;
-};
+    private:
+        string varName;
+    };
 
 } /* namespace ast */
 #endif	/* PRINTVAR_H */
