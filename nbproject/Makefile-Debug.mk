@@ -57,8 +57,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=
-CXXFLAGS=
+CCFLAGS=-std=c++14
+CXXFLAGS=-std=c++14
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -80,82 +80,82 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tkom-currency: ${OBJECTFILES}
 ${OBJECTDIR}/src/ast/Assignment.o: src/ast/Assignment.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Assignment.o src/ast/Assignment.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Assignment.o src/ast/Assignment.cpp
 
 ${OBJECTDIR}/src/ast/Bracket.o: src/ast/Bracket.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Bracket.o src/ast/Bracket.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Bracket.o src/ast/Bracket.cpp
 
 ${OBJECTDIR}/src/ast/CurrVarDeclaration.o: src/ast/CurrVarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/CurrVarDeclaration.o src/ast/CurrVarDeclaration.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/CurrVarDeclaration.o src/ast/CurrVarDeclaration.cpp
 
 ${OBJECTDIR}/src/ast/InputInstruction.o: src/ast/InputInstruction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/InputInstruction.o src/ast/InputInstruction.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/InputInstruction.o src/ast/InputInstruction.cpp
 
 ${OBJECTDIR}/src/ast/Instruction.o: src/ast/Instruction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Instruction.o src/ast/Instruction.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Instruction.o src/ast/Instruction.cpp
 
 ${OBJECTDIR}/src/ast/InstructionLink.o: src/ast/InstructionLink.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/InstructionLink.o src/ast/InstructionLink.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/InstructionLink.o src/ast/InstructionLink.cpp
 
 ${OBJECTDIR}/src/ast/NumVarDeclaration.o: src/ast/NumVarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/NumVarDeclaration.o src/ast/NumVarDeclaration.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/NumVarDeclaration.o src/ast/NumVarDeclaration.cpp
 
 ${OBJECTDIR}/src/ast/Operator.o: src/ast/Operator.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Operator.o src/ast/Operator.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Operator.o src/ast/Operator.cpp
 
 ${OBJECTDIR}/src/ast/PrintVar.o: src/ast/PrintVar.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/PrintVar.o src/ast/PrintVar.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/PrintVar.o src/ast/PrintVar.cpp
 
 ${OBJECTDIR}/src/ast/Program.o: src/ast/Program.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Program.o src/ast/Program.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Program.o src/ast/Program.cpp
 
 ${OBJECTDIR}/src/ast/RValue.o: src/ast/RValue.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/RValue.o src/ast/RValue.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/RValue.o src/ast/RValue.cpp
 
 ${OBJECTDIR}/src/ast/VarDeclaration.o: src/ast/VarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/VarDeclaration.o src/ast/VarDeclaration.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/VarDeclaration.o src/ast/VarDeclaration.cpp
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
 
 ${OBJECTDIR}/src/parser/Parser.o: src/parser/Parser.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/parser
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parser/Parser.o src/parser/Parser.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parser/Parser.o src/parser/Parser.cpp
 
 ${OBJECTDIR}/src/parser/Scanner.o: src/parser/Scanner.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/parser
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parser/Scanner.o src/parser/Scanner.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parser/Scanner.o src/parser/Scanner.cpp
 
 ${OBJECTDIR}/src/parser/Token.o: src/parser/Token.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/parser
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parser/Token.o src/parser/Token.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parser/Token.o src/parser/Token.cpp
 
 # Subprojects
 .build-subprojects:

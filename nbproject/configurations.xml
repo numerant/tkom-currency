@@ -75,7 +75,7 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>8</standard>
+          <commandLine>-std=c++14</commandLine>
         </ccTool>
       </compileType>
       <item path="src/ast/Assignment.cpp" ex="false" tool="1" flavor2="0">

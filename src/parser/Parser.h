@@ -4,6 +4,7 @@
 #include <memory>
 #include "Scanner.h"
 #include "../ast/Program.h"
+#include "../ast/InstructionLink.h"
 
 namespace parser
 {
@@ -24,6 +25,7 @@ namespace parser
         void throwOnUnexpectedInput(Token::Type expected);
         Token requireToken(Token::Type expected);
         bool checkTokenType(Token::Type expected) const;
+        bool checkTokenValue(std::string value) const;
         void advance();
 
         /* Fields */

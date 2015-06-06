@@ -35,8 +35,9 @@ namespace parser
 
         std::string typeToString();
         std::string toString();
-    private:
         std::string valueToString();
+    private:
+
 
         std::string alphanumValue;
         Type type;
