@@ -12,6 +12,16 @@ namespace parser
     class Token
     {
     public:
+
+        enum class Type
+        {
+            Eof,
+            Integer,
+            Operator,
+            AlphaNum,
+            Bracket,
+        };
+
         Token();
         Token(std::string s);
         Token(int i);
@@ -19,6 +29,7 @@ namespace parser
         Token(ast::Operator o);
     private:
         std::string alphanumValue;
+        Type type;
         union
         {
             int integer;

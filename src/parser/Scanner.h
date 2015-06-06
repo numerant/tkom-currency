@@ -25,7 +25,7 @@ namespace parser
         void ignoreWhitespaces();
         bool tryBracket();
         bool tryOperator();
-        bool trySpecial();
+        bool tryTwoCharOperator();
         bool tryAlphaNum();
         bool tryEof();
 

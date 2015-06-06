@@ -21,7 +21,13 @@ void Scanner::readNextToken()
 
 bool Scanner::tryAlphaNum()
 {
-
+    std::string buffer;
+    while ( in && std::isalnum( in.peek() ) )
+        buffer += static_cast<char> ( in.get() );
+    if ( buffer.empty() )
+        return false;
+    token = Token( std::stoi(buffer) );
+    return true;
 }
 
 void Scanner::ignoreWhitespaces()
@@ -69,6 +75,15 @@ bool Scanner::tryOperator()
         case '/':
             token = Operator::Division;
             break;
+        case '=':
+            token = Operator::Assignment;
+            break;
+        case '.':
+            token = Operator::Dot;
+            break;
+        case ',':
+            token = Operator::Comma;
+            break;
         default:
             return false;
     }
@@ -76,9 +91,27 @@ bool Scanner::tryOperator()
     return true;
 }
 
-bool Scanner::trySpecial()
+bool Scanner::tryTwoCharOperator()
 {
+    char first = in.get();
+    char second = in.peek();
 
+    if (first == '=' && second == '=')
+        token = Operator::Equal;
+    else if (first == '!' && second == '=')
+        token = Operator::NotEqual;
+    else if (first == '>' && second == '=')
+        token = Operator::GreaterEqual;
+    else if (first == '<' && second == '=')
+        token = Operator::LessEqual;
+    else
+    {
+        in.unget();
+        return false;
+    }
+
+    in.get();
+    return true;
 }
 
 bool Scanner::tryEof()
