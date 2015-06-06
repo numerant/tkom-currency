@@ -16,17 +16,25 @@ Token Scanner::getToken() const
 
 void Scanner::readNextToken()
 {
-
+    ignoreWhitespaces();
+    if (tryEof())
+        return;
+    throwStreamError();
+    if (tryBracket() || tryTwoCharOperator() || tryOperator())
+        return;
+    if (tryAlphaNum())
+        return;
+    throwUnknownToken();
 }
 
 bool Scanner::tryAlphaNum()
 {
     std::string buffer;
-    while ( in && std::isalnum( in.peek() ) )
-        buffer += static_cast<char> ( in.get() );
-    if ( buffer.empty() )
+    while (in && std::isalnum(in.peek()))
+        buffer += static_cast<char> (in.get());
+    if (buffer.empty())
         return false;
-    token = Token( std::stoi(buffer) );
+    token = Token(buffer);
     return true;
 }
 
@@ -84,6 +92,18 @@ bool Scanner::tryOperator()
         case ',':
             token = Operator::Comma;
             break;
+        case ';':
+            token = Operator::Semicolon;
+            break;
+        case '$':
+            token = Operator::Dollar;
+            break;
+        case '>':
+            token = Operator::Greater;
+            break;
+        case '<':
+            token = Operator::Less;
+            break;
         default:
             return false;
     }
@@ -120,6 +140,18 @@ bool Scanner::tryEof()
         return false;
     token = Token();
     return true;
+}
+
+void Scanner::throwStreamError()
+{
+    if (!in)
+        throw std::runtime_error("Input error");
+}
+
+void Scanner::throwUnknownToken()
+{
+    const std::string msg = "Token not recognized, starting with: ";
+    throw std::runtime_error(msg + static_cast<char> (in.get()));
 }
 
 

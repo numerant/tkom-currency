@@ -1,6 +1,8 @@
 #ifndef OPERATOR_H
 #define	OPERATOR_H
 
+#include <string>
+
 namespace ast
 {
 
@@ -23,8 +25,11 @@ namespace ast
         /* Other */
         Comma,
         Dot,
+        Dollar,
+        Semicolon,
     };
 
+    std::string toString(Operator o);
 }
 
 #endif	/* OPERATOR_H */

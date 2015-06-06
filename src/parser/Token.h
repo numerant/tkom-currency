@@ -27,9 +27,15 @@ namespace parser
         Token(int i);
         Token(ast::Bracket b);
         Token(ast::Operator o);
+
+        std::string typeToString();
+        std::string toString();
     private:
+        std::string valueToString();
+
         std::string alphanumValue;
         Type type;
+
         union
         {
             int integer;

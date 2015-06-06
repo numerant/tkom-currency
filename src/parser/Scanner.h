@@ -28,6 +28,8 @@ namespace parser
         bool tryTwoCharOperator();
         bool tryAlphaNum();
         bool tryEof();
+        void throwStreamError();
+        void throwUnknownToken();
 
     };
 
