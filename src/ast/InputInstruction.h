@@ -8,7 +8,7 @@ namespace ast
 
 class InputInstruction {
 public:
-    virtual ~InputInstruction(); 
+//    virtual ~InputInstruction();
 private:
 
 };

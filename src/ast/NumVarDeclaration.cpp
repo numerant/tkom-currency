@@ -2,7 +2,7 @@
 
 using namespace ast;
 
-NumVarDeclaration::NumVarDeclaration(string name, unique_ptr<RValue> *asgRValue)
+NumVarDeclaration::NumVarDeclaration(string name, unique_ptr<RValue> asgRValue)
 {
     this->name = name;
     this->assignmentRValue = move(asgRValue);
@@ -14,4 +14,8 @@ NumVarDeclaration::NumVarDeclaration(string name, string asgVarName)
     this->name = name;
     this->assignmentRValue = nullptr;
     this->assignmentVarName = "";
+}
+
+int NumVarDeclaration::execute() const
+{
 }

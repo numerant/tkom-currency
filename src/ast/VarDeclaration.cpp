@@ -4,5 +4,6 @@ using namespace ast;
 
 VarDeclaration::~VarDeclaration()
 {
+
 }
 

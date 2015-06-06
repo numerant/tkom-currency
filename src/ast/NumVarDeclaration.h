@@ -14,7 +14,7 @@ namespace ast
 class NumVarDeclaration : VarDeclaration
 {
 public:
-    NumVarDeclaration(string name, unique_ptr<RValue> *asgRValue);
+    NumVarDeclaration(string name, unique_ptr<RValue> asgRValue);
     NumVarDeclaration(string name, string asgVarName);
     int execute() const override;
 

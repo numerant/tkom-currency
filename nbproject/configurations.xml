@@ -4,9 +4,15 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/ast/Assignment.h</itemPath>
+      <itemPath>src/ast/CurrVarDeclaration.h</itemPath>
       <itemPath>src/ast/InputInstruction.h</itemPath>
       <itemPath>src/ast/Instruction.h</itemPath>
+      <itemPath>src/ast/NumVarDeclaration.h</itemPath>
+      <itemPath>src/ast/PrintVar.h</itemPath>
       <itemPath>src/ast/RValue.h</itemPath>
+      <itemPath>src/parser/Scanner.h</itemPath>
+      <itemPath>src/parser/Token.h</itemPath>
       <itemPath>src/ast/VarDeclaration.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -16,11 +22,23 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/ast/Assignment.cpp</itemPath>
+      <itemPath>src/ast/CurrVarDeclaration.cpp</itemPath>
       <itemPath>src/ast/InputInstruction.cpp</itemPath>
       <itemPath>src/ast/Instruction.cpp</itemPath>
+      <itemPath>src/ast/NumVarDeclaration.cpp</itemPath>
+      <itemPath>src/ast/PrintVar.cpp</itemPath>
       <itemPath>src/ast/RValue.cpp</itemPath>
+      <itemPath>src/parser/Scanner.cpp</itemPath>
+      <itemPath>src/parser/Token.cpp</itemPath>
       <itemPath>src/ast/VarDeclaration.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="src" displayName="src" projectFiles="true">
+      <logicalFolder name="ast" displayName="ast" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="parser" displayName="parser" projectFiles="true">
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -34,6 +52,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>src</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -47,6 +68,14 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="src/ast/Assignment.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/Assignment.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/CurrVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/CurrVarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/InputInstruction.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/InputInstruction.h" ex="false" tool="3" flavor2="0">
@@ -54,6 +83,14 @@
       <item path="src/ast/Instruction.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Instruction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/NumVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/NumVarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/PrintVar.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/PrintVar.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/RValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -64,6 +101,14 @@
       <item path="src/ast/VarDeclaration.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parser/Scanner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parser/Scanner.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/parser/Token.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parser/Token.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -86,6 +131,14 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="src/ast/Assignment.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/Assignment.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/CurrVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/CurrVarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/InputInstruction.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/InputInstruction.h" ex="false" tool="3" flavor2="0">
@@ -93,6 +146,14 @@
       <item path="src/ast/Instruction.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Instruction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/NumVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/NumVarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/PrintVar.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/PrintVar.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/RValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -103,6 +164,14 @@
       <item path="src/ast/VarDeclaration.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parser/Scanner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parser/Scanner.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/parser/Token.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parser/Token.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

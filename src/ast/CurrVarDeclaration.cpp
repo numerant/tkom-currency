@@ -1,4 +1,4 @@
-#include "NumVarDeclaration.h"
+#include "CurrVarDeclaration.h"
 
 using namespace ast;
 
@@ -16,4 +16,8 @@ CurrVarDeclaration::CurrVarDeclaration(string currency, string name, string asgV
     this->name = name;
     this->assignmentRValue = nullptr;
     this->assignmentVarName = asgVarName;
+}
+
+int CurrVarDeclaration::execute() const
+{
 }

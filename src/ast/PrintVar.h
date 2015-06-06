@@ -8,13 +8,13 @@ using namespace std;
 
 
 namespace ast
-{   
+{
 
 class PrintVar : Instruction
 {
 public:
     PrintVar(string varName);
-    int execute() const override;
+    //int execute() const override;
 
 private:
     string varName;

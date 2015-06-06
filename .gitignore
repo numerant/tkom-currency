@@ -28,3 +28,5 @@
 *.app
 
 nbproject/private
+/build/
+/dist/

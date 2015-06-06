@@ -1,7 +1,7 @@
-/* 
+/*
  * File:   InputInstruction.cpp
  * Author: jmaleszewski
- * 
+ *
  * Created on 5 czerwiec 2015, 10:49
  */
 
@@ -9,9 +9,9 @@
 
 using namespace ast;
 
-InputInstruction::~InputInstruction()
-{
-    
-}
+//InputInstruction::~InputInstruction()
+//{
+//
+//}
 
 

@@ -9,7 +9,6 @@ class Token
 public:
     Token();
     Token(const Token& orig);
-    virtual ~Token();
 private:
 
 };

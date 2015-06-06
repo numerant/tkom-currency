@@ -3,9 +3,9 @@
 using namespace parser;
 using namespace std;
 
-Scanner::Scanner(std::istream& in)
+Scanner::Scanner(std::istream& in_) :
+in(in_)
 {
-    this->in = in;
 }
 
 Token Scanner::getToken() const
@@ -15,12 +15,12 @@ Token Scanner::getToken() const
 
 void Scanner::readNextToken()
 {
-    
+
 }
 
 bool Scanner::tryAlphaNum()
 {
-    
+
 }
 
 void Scanner::ignoreWhitespaces()

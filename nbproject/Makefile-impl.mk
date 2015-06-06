@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=TKOM
+PROJECTNAME=tkom-currency
 
 # Active Configuration
 DEFAULTCONF=Debug
