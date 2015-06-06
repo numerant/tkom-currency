@@ -31,6 +31,26 @@ Token::Token(ast::Operator o)
     value.oper = o;
 }
 
+Token::Type Token::getType() const
+{
+    return type;
+}
+
+int Token::getInteger() const
+{
+    return value.integer;
+}
+
+ast::Bracket Token::getBracket() const
+{
+    return value.bracket;
+}
+
+ast::Operator Token::getOperator() const
+{
+    return value.oper;
+}
+
 std::string Token::typeToString()
 {
     switch (type)

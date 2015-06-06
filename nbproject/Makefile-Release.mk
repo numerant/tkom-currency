@@ -43,9 +43,11 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/NumVarDeclaration.o \
 	${OBJECTDIR}/src/ast/Operator.o \
 	${OBJECTDIR}/src/ast/PrintVar.o \
+	${OBJECTDIR}/src/ast/Program.o \
 	${OBJECTDIR}/src/ast/RValue.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
 	${OBJECTDIR}/src/main.o \
+	${OBJECTDIR}/src/parser/Parser.o \
 	${OBJECTDIR}/src/parser/Scanner.o \
 	${OBJECTDIR}/src/parser/Token.o
 
@@ -114,6 +116,11 @@ ${OBJECTDIR}/src/ast/PrintVar.o: src/ast/PrintVar.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/PrintVar.o src/ast/PrintVar.cpp
 
+${OBJECTDIR}/src/ast/Program.o: src/ast/Program.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Program.o src/ast/Program.cpp
+
 ${OBJECTDIR}/src/ast/RValue.o: src/ast/RValue.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
@@ -128,6 +135,11 @@ ${OBJECTDIR}/src/main.o: src/main.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
+
+${OBJECTDIR}/src/parser/Parser.o: src/parser/Parser.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/parser
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parser/Parser.o src/parser/Parser.cpp
 
 ${OBJECTDIR}/src/parser/Scanner.o: src/parser/Scanner.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/parser

@@ -28,6 +28,11 @@ namespace parser
         Token(ast::Bracket b);
         Token(ast::Operator o);
 
+        Type getType() const;
+        int getInteger() const;
+        ast::Bracket getBracket() const;
+        ast::Operator getOperator() const;
+
         std::string typeToString();
         std::string toString();
     private:
