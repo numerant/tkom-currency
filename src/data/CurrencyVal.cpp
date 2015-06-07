@@ -9,6 +9,14 @@ CurrencyVal::CurrencyVal(int integer, int fraction, int precision)
     this->precision = precision;
 }
 
+CurrencyVal::CurrencyVal()
+{
+    this->integer = 0;
+    this->fraction = 0;
+    this->precision = 0;
+}
+
+
 CurrencyVal CurrencyVal::operator+(const CurrencyVal& value)
 {
     int new_integer;
@@ -118,6 +126,15 @@ CurrencyVal CurrencyVal::operator/(const int& divisor)
 
     return CurrencyVal(new_integer, new_fraction, precision);
 }
+
+//CurrencyVal& CurrencyVal::operator=(const CurrencyVal& other)
+//{
+//    if (this != &other)
+//    {
+//
+//    }
+//    return *this;
+//}
 
 int CurrencyVal::getFraction() const
 {
