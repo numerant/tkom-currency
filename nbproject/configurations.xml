@@ -7,11 +7,13 @@
       <itemPath>src/ast/Assignment.h</itemPath>
       <itemPath>src/ast/Bracket.h</itemPath>
       <itemPath>src/ast/CurrVarDeclaration.h</itemPath>
+      <itemPath>src/data/CurrencyVal.h</itemPath>
       <itemPath>src/data/ExchangeRateStorage.h</itemPath>
       <itemPath>src/ast/InputInstruction.h</itemPath>
       <itemPath>src/ast/Instruction.h</itemPath>
       <itemPath>src/ast/InstructionLink.h</itemPath>
       <itemPath>src/ast/NumVarDeclaration.h</itemPath>
+      <itemPath>src/ast/Number.h</itemPath>
       <itemPath>src/ast/Operator.h</itemPath>
       <itemPath>src/parser/Parser.h</itemPath>
       <itemPath>src/ast/PrintVar.h</itemPath>
@@ -32,11 +34,13 @@
       <itemPath>src/ast/Assignment.cpp</itemPath>
       <itemPath>src/ast/Bracket.cpp</itemPath>
       <itemPath>src/ast/CurrVarDeclaration.cpp</itemPath>
+      <itemPath>src/data/CurrencyVal.cpp</itemPath>
       <itemPath>src/data/ExchangeRateStorage.cpp</itemPath>
       <itemPath>src/ast/InputInstruction.cpp</itemPath>
       <itemPath>src/ast/Instruction.cpp</itemPath>
       <itemPath>src/ast/InstructionLink.cpp</itemPath>
       <itemPath>src/ast/NumVarDeclaration.cpp</itemPath>
+      <itemPath>src/ast/Number.cpp</itemPath>
       <itemPath>src/ast/Operator.cpp</itemPath>
       <itemPath>src/parser/Parser.cpp</itemPath>
       <itemPath>src/ast/PrintVar.cpp</itemPath>
@@ -110,6 +114,10 @@
       </item>
       <item path="src/ast/NumVarDeclaration.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/ast/Number.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/Number.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/Operator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Operator.h" ex="false" tool="3" flavor2="0">
@@ -133,6 +141,10 @@
       <item path="src/ast/VarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/VarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/data/CurrencyVal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/data/CurrencyVal.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/data/ExchangeRateStorage.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -201,6 +213,10 @@
       </item>
       <item path="src/ast/NumVarDeclaration.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/ast/Number.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/Number.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/Operator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Operator.h" ex="false" tool="3" flavor2="0">
@@ -224,6 +240,10 @@
       <item path="src/ast/VarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/VarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/data/CurrencyVal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/data/CurrencyVal.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/data/ExchangeRateStorage.cpp" ex="false" tool="1" flavor2="0">
       </item>

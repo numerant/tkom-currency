@@ -42,12 +42,14 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Instruction.o \
 	${OBJECTDIR}/src/ast/InstructionLink.o \
 	${OBJECTDIR}/src/ast/NumVarDeclaration.o \
+	${OBJECTDIR}/src/ast/Number.o \
 	${OBJECTDIR}/src/ast/Operator.o \
 	${OBJECTDIR}/src/ast/PrintVar.o \
 	${OBJECTDIR}/src/ast/Program.o \
 	${OBJECTDIR}/src/ast/RValue.o \
 	${OBJECTDIR}/src/ast/SettingInstruction.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
+	${OBJECTDIR}/src/data/CurrencyVal.o \
 	${OBJECTDIR}/src/data/ExchangeRateStorage.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/parser/Parser.o \
@@ -114,6 +116,11 @@ ${OBJECTDIR}/src/ast/NumVarDeclaration.o: src/ast/NumVarDeclaration.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/NumVarDeclaration.o src/ast/NumVarDeclaration.cpp
 
+${OBJECTDIR}/src/ast/Number.o: src/ast/Number.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Number.o src/ast/Number.cpp
+
 ${OBJECTDIR}/src/ast/Operator.o: src/ast/Operator.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
@@ -143,6 +150,11 @@ ${OBJECTDIR}/src/ast/VarDeclaration.o: src/ast/VarDeclaration.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/VarDeclaration.o src/ast/VarDeclaration.cpp
+
+${OBJECTDIR}/src/data/CurrencyVal.o: src/data/CurrencyVal.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/data
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/data/CurrencyVal.o src/data/CurrencyVal.cpp
 
 ${OBJECTDIR}/src/data/ExchangeRateStorage.o: src/data/ExchangeRateStorage.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/data
