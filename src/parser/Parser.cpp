@@ -53,6 +53,14 @@ std::unique_ptr<ast::Program> Parser::readInputInstr()
         return readSettingInstr();
     else if (checkTokenValue("FUNCTION"))
         return readFuncDefinition();
+    else
+        return readInstruction();
+
+    throwOnUnexpectedInput();
+}
+
+std::unique_ptr<ast::Instruction> Parser::readInstruction()
+{
 //    else if (checkTokenValue("NUM"))
 //        return readNumVarDeclaration();
 //    else if (checkTokenValue("PRINT"))
@@ -71,10 +79,8 @@ std::unique_ptr<ast::Program> Parser::readInputInstr()
 //        return readFuncCall(first);
 //    else if (checkTokenType(Token::Type::AlphaNum))
 //        return readNamedVarDeclaration(first);
-    else
-        throwOnUnexpectedInput();
-
 }
+
 
 std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
 {
@@ -163,7 +169,9 @@ std::unique_ptr<ast::FuncDefinition> Parser::readFuncDefinition()
 
 std::unique_ptr<ast::InstrSequence> Parser::readInstrSequence()
 {
-
+    auto rightOperand = readInstruction();
+    return make_unique<ast::InstrSequence>(std::move(leftOperand),
+            std::move(rightOperand));
 }
 
 

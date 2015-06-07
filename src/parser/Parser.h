@@ -27,6 +27,7 @@ namespace parser
         std::unique_ptr<ast::Program> readProgram();
         std::unique_ptr<ast::Program> readInstructionLink(std::unique_ptr<ast::Program> leftOperand);
         std::unique_ptr<ast::Program> readInputInstr();
+        std::unique_ptr<ast::Instruction> readInstruction();
         std::unique_ptr<ast::SettingInstruction> readSettingInstr();
         std::unique_ptr<ast::Operator> readOperator();
         std::unique_ptr<ast::Bracket> readBracket();
