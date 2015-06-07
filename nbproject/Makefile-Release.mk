@@ -49,7 +49,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/RValue.o \
 	${OBJECTDIR}/src/ast/SettingInstruction.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
-	${OBJECTDIR}/src/data/CurrencyVal.o \
 	${OBJECTDIR}/src/data/ExchangeRateStorage.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/parser/Parser.o \
@@ -150,11 +149,6 @@ ${OBJECTDIR}/src/ast/VarDeclaration.o: src/ast/VarDeclaration.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/VarDeclaration.o src/ast/VarDeclaration.cpp
-
-${OBJECTDIR}/src/data/CurrencyVal.o: src/data/CurrencyVal.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/data
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/data/CurrencyVal.o src/data/CurrencyVal.cpp
 
 ${OBJECTDIR}/src/data/ExchangeRateStorage.o: src/data/ExchangeRateStorage.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/data

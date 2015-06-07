@@ -2,7 +2,7 @@
 
 using namespace ast;
 
-SettingInstruction::SettingInstruction(std::string currFrom, std::unique_ptr<CurrencyVal> rate, std::string currTo,
+SettingInstruction::SettingInstruction(std::string currFrom, bmp::cpp_dec_float_50 rate, std::string currTo,
         data::ExchangeRateStorage *storage)
 {
     this->currFrom = currFrom;
@@ -13,7 +13,7 @@ SettingInstruction::SettingInstruction(std::string currFrom, std::unique_ptr<Cur
 
 int SettingInstruction::execute() const
 {
-    storage->setRate(currFrom, currTo, *rate);
+    storage->setRate(currFrom, currTo, rate);
 }
 
 std::string SettingInstruction::toString() const

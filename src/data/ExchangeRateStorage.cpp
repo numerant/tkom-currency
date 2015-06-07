@@ -2,12 +2,12 @@
 
 using namespace data;
 
-CurrencyVal ExchangeRateStorage::getRate(std::string from, std::string to)
+bmp::cpp_dec_float_50 ExchangeRateStorage::getRate(std::string from, std::string to)
 {
     return storage.at(std::make_pair(from, to));
 }
 
-void ExchangeRateStorage::setRate(std::string from, std::string to, CurrencyVal rate)
+void ExchangeRateStorage::setRate(std::string from, std::string to, bmp::cpp_dec_float_50 rate)
 {
     // Exchange rate upsert
     std::pair<std::string, std::string> key = std::make_pair(from, to);

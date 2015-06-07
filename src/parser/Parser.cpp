@@ -83,7 +83,7 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
 
     // readAmount;
     //std::string to = requireToken(Token::Type::AlphaNum).valueToString();
-    return std::make_unique<ast::SettingInstruction>()
+    //return std::make_unique<ast::SettingInstruction>()
 }
 
 

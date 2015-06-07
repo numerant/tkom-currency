@@ -2,9 +2,11 @@
 #define	SETTINGINSTRUCTION_H
 
 #include <memory>
+#include <boost/multiprecision/cpp_dec_float.hpp>
 #include "InputInstruction.h"
 #include "../data/ExchangeRateStorage.h"
-#include "../data/CurrencyVal.h"
+
+namespace bmp = boost::multiprecision;
 
 namespace ast
 {
@@ -12,7 +14,7 @@ namespace ast
     class SettingInstruction : public InputInstruction
     {
     public:
-        SettingInstruction(std::string currFrom, std::unique_ptr<CurrencyVal> rate, std::string currTo,
+        SettingInstruction(std::string currFrom, bmp::cpp_dec_float_50 rate, std::string currTo,
                 data::ExchangeRateStorage *storage);
 
         int execute() const override;
@@ -21,7 +23,7 @@ namespace ast
 
         std::string currFrom;
         std::string currTo;
-        std::unique_ptr<CurrencyVal> rate;
+        bmp::cpp_dec_float_50 rate;
         data::ExchangeRateStorage *storage;
     };
 
