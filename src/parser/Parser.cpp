@@ -79,10 +79,10 @@ std::unique_ptr<ast::Program> Parser::readInputInstr()
 std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
 {
     requireToken(Token::Type::AlphaNum);
-    std::string from = requireToken(Token::Type::AlphaNum);
+    std::string from = requireToken(Token::Type::AlphaNum).valueToString();
 
     // readAmount;
-    std::string to = requireToken(Token::Type::AlphaNum);
+    //std::string to = requireToken(Token::Type::AlphaNum).valueToString();
     return std::make_unique<ast::SettingInstruction>()
 }
 
