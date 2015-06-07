@@ -1,5 +1,7 @@
 #include "SettingInstruction.h"
 
+#include <iostream>
+
 using namespace ast;
 
 SettingInstruction::SettingInstruction(std::string currFrom, bmp::cpp_dec_float_50 rate, std::string currTo,
@@ -14,6 +16,7 @@ SettingInstruction::SettingInstruction(std::string currFrom, bmp::cpp_dec_float_
 int SettingInstruction::execute() const
 {
     storage->setRate(currFrom, currTo, rate);
+    std::cout << currFrom << currTo << rate;
 }
 
 std::string SettingInstruction::toString() const

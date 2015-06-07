@@ -11,16 +11,16 @@ using namespace parser;
  */
 int main(int argc, char** argv)
 {
-    Scanner scanner(cin);
+//    Scanner scanner(cin);
+//
+//    while(cin)
+//    {
+//        scanner.readNextToken();
+//        cout << scanner.getToken().toString() << "\n";
+//    }
 
-    while(cin)
-    {
-        scanner.readNextToken();
-        cout << scanner.getToken().toString() << "\n";
-    }
-
-//      Parser p(std::make_unique<Scanner>(std::cin));
-//      p.parse()->execute();
+      Parser p(std::make_unique<Scanner>(std::cin));
+      p.parse()->execute();
 
     return 0;
 }

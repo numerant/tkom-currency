@@ -78,12 +78,18 @@ std::unique_ptr<ast::Program> Parser::readInputInstr()
 
 std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
 {
-    requireToken(Token::Type::AlphaNum);
+    advance();
     std::string from = requireToken(Token::Type::AlphaNum).valueToString();
+    advance();
+
+    if (!checkTokenValue("="))
+        throwOnUnexpectedInput();
+    advance();
 
     auto rate = readAmount()->getValue();
     // readAmount;
     std::string to = requireToken(Token::Type::AlphaNum).valueToString();
+    advance();
     return std::make_unique<ast::SettingInstruction>(from, rate, to, &storage);
 }
 
@@ -106,28 +112,30 @@ std::unique_ptr<ast::Amount> Parser::readAmount()
 {
     bool negative = false;
     int integer;
-    std::string fraction;
+    std::string fraction = "0";
     if (checkTokenValue("("))
     {
-        requireToken(Token::Type::Operator);
+        advance();
         if (!checkTokenValue("-"))
             throwOnUnexpectedInput();
-        requireToken(Token::Type::Operator);
+        advance();
         negative = true;
     }
 
     integer = requireToken(Token::Type::Integer).getInteger();
+    advance();
     if (checkTokenValue("."))
     {
-        requireToken(Token::Type::Operator);
+        advance();
         fraction = requireToken(Token::Type::Integer).valueToString();
+        advance();
     }
     if (negative)
     {
         integer *= -1;
         if (!checkTokenValue(")"))
             throwOnUnexpectedInput();
-        requireToken(Token::Type::Operator);
+        advance();
     }
 
     return std::make_unique<ast::Amount>(integer, fraction);
