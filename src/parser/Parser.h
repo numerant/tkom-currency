@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "Scanner.h"
+#include "../ast/Currency.h"
 #include "../ast/Program.h"
 #include "../ast/InstructionLink.h"
 #include "../ast/InputInstruction.h"

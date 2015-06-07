@@ -24,12 +24,12 @@ namespace parser
 
         Token();
         Token(std::string s);
-        Token(int i);
+        Token(long int i);
         Token(ast::Bracket b);
         Token(ast::Operator o);
 
         Type getType() const;
-        int getInteger() const;
+        long int getInteger() const;
         ast::Bracket getBracket() const;
         ast::Operator getOperator() const;
 
@@ -44,7 +44,7 @@ namespace parser
 
         union
         {
-            int integer;
+            long int integer;
             ast::Bracket bracket;
             ast::Operator oper;
         } value;

@@ -86,7 +86,7 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
         throwOnUnexpectedInput();
     advance();
 
-    auto rate = readAmount()->getValue();
+    Currency rate = readAmount()->getValue();
     // readAmount;
     std::string to = requireToken(Token::Type::AlphaNum).valueToString();
     advance();
@@ -111,7 +111,7 @@ std::unique_ptr<ast::Bracket> Parser::readBracket()
 std::unique_ptr<ast::Amount> Parser::readAmount()
 {
     bool negative = false;
-    int integer;
+    long int integer;
     std::string fraction = "0";
     if (checkTokenValue("("))
     {

@@ -13,7 +13,7 @@ Token::Token(ast::Bracket b)
     value.bracket = b;
 }
 
-Token::Token(int i)
+Token::Token(long int i)
 {
     type = Type::Integer;
     value.integer = i;
@@ -30,7 +30,7 @@ Token::Token(std::string s)
             return;
         }
     }
-    value.integer = std::stoi(s);
+    value.integer = std::stol(s);
     type = Type::Integer;
 }
 
@@ -45,7 +45,7 @@ Token::Type Token::getType() const
     return type;
 }
 
-int Token::getInteger() const
+long int Token::getInteger() const
 {
     return value.integer;
 }

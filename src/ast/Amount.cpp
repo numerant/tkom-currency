@@ -10,7 +10,7 @@ Amount::Amount(int integer)
 Amount::Amount(int integer, std::string fraction)
 {
     value = integer;
-    bmp::cpp_dec_float_50 frac = std::stoi(fraction);
+    Currency frac = std::stol(fraction);
 
     for (int i = 0; i < fraction.length(); i++)
         frac = frac / 10;
@@ -18,7 +18,7 @@ Amount::Amount(int integer, std::string fraction)
     value += frac;
 }
 
-bmp::cpp_dec_float_50 Amount::getValue() const
+Currency Amount::getValue() const
 {
     return value;
 }

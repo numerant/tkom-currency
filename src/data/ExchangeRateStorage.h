@@ -3,7 +3,7 @@
 
 #include <map>
 #include <utility>
-#include <boost/multiprecision/cpp_dec_float.hpp>
+#include "../ast/Currency.h"
 
 namespace bmp = boost::multiprecision;
 
@@ -13,10 +13,10 @@ namespace data
     class ExchangeRateStorage
     {
     public:
-        void setRate(std::string from, std::string to, bmp::cpp_dec_float_50 rate);
-        bmp::cpp_dec_float_50 getRate(std::string from, std::string to);
+        void setRate(std::string from, std::string to, Currency rate);
+        Currency getRate(std::string from, std::string to);
     private:
-        std::map<std::pair<std::string, std::string>, bmp::cpp_dec_float_50> storage;
+        std::map<std::pair<std::string, std::string>, Currency> storage;
     };
 
 }

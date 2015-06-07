@@ -1,9 +1,9 @@
 #ifndef AMOUNT_H
 #define	AMOUNT_H
 
-#include <boost/multiprecision/cpp_dec_float.hpp>
 #include <sstream>
 #include <string>
+#include "Currency.h"
 
 namespace bmp = boost::multiprecision;
 
@@ -16,9 +16,9 @@ namespace ast
         Amount(int integer);
         Amount(int integer, std::string fraction);
         std::string toString() const;
-        bmp::cpp_dec_float_50 getValue() const;
+        Currency getValue() const;
     private:
-        bmp::cpp_dec_float_50 value;
+        Currency value;
     };
 
 }

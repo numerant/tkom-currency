@@ -4,11 +4,11 @@
 
 using namespace ast;
 
-SettingInstruction::SettingInstruction(std::string currFrom, bmp::cpp_dec_float_50 rate, std::string currTo,
+SettingInstruction::SettingInstruction(std::string currFrom, Currency rate, std::string currTo,
         data::ExchangeRateStorage *storage)
 {
     this->currFrom = currFrom;
-    this->rate = std::move(rate);
+    this->rate = rate;
     this->currTo = currTo;
     this->storage = storage;
 }

@@ -8,6 +8,7 @@
       <itemPath>src/ast/Assignment.h</itemPath>
       <itemPath>src/ast/Bracket.h</itemPath>
       <itemPath>src/ast/CurrVarDeclaration.h</itemPath>
+      <itemPath>src/ast/Currency.h</itemPath>
       <itemPath>src/data/ExchangeRateStorage.h</itemPath>
       <itemPath>src/ast/InputInstruction.h</itemPath>
       <itemPath>src/ast/Instruction.h</itemPath>
@@ -101,6 +102,8 @@
       <item path="src/ast/CurrVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/CurrVarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/Currency.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/InputInstruction.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -200,6 +203,8 @@
       <item path="src/ast/CurrVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/CurrVarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/Currency.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/InputInstruction.cpp" ex="false" tool="1" flavor2="0">
       </item>
