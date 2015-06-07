@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/ast/Amount.h</itemPath>
       <itemPath>src/ast/Assignment.h</itemPath>
       <itemPath>src/ast/Bracket.h</itemPath>
       <itemPath>src/ast/CurrVarDeclaration.h</itemPath>
@@ -30,6 +31,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/ast/Amount.cpp</itemPath>
       <itemPath>src/ast/Assignment.cpp</itemPath>
       <itemPath>src/ast/Bracket.cpp</itemPath>
       <itemPath>src/ast/CurrVarDeclaration.cpp</itemPath>
@@ -84,6 +86,10 @@
           <commandLine>-std=c++14</commandLine>
         </ccTool>
       </compileType>
+      <item path="src/ast/Amount.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/Amount.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/Assignment.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Assignment.h" ex="false" tool="3" flavor2="0">
@@ -179,6 +185,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="src/ast/Amount.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/Amount.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/Assignment.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Assignment.h" ex="false" tool="3" flavor2="0">

@@ -7,6 +7,7 @@
 #include "../ast/InstructionLink.h"
 #include "../ast/InputInstruction.h"
 #include "../ast/SettingInstruction.h"
+#include "../data/ExchangeRateStorage.h"
 
 namespace parser
 {
@@ -36,6 +37,7 @@ namespace parser
 
         /* Fields */
         std::unique_ptr<Scanner> scanner;
+        data::ExchangeRateStorage storage;
     };
 
 }

@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/ast/Amount.o \
 	${OBJECTDIR}/src/ast/Assignment.o \
 	${OBJECTDIR}/src/ast/Bracket.o \
 	${OBJECTDIR}/src/ast/CurrVarDeclaration.o \
@@ -79,6 +80,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tkom-currency: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tkom-currency ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/src/ast/Amount.o: src/ast/Amount.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Amount.o src/ast/Amount.cpp
 
 ${OBJECTDIR}/src/ast/Assignment.o: src/ast/Assignment.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast

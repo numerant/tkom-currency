@@ -26,6 +26,7 @@ namespace parser
         bool tryBracket();
         bool tryOperator();
         bool tryTwoCharOperator();
+        bool tryInteger();
         bool tryAlphaNum();
         bool tryEof();
         void throwStreamError();

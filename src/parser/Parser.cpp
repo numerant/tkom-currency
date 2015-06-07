@@ -81,9 +81,10 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
     requireToken(Token::Type::AlphaNum);
     std::string from = requireToken(Token::Type::AlphaNum).valueToString();
 
+    bmp::cpp_dec_float_50 rate;
     // readAmount;
-    //std::string to = requireToken(Token::Type::AlphaNum).valueToString();
-    //return std::make_unique<ast::SettingInstruction>()
+    std::string to = requireToken(Token::Type::AlphaNum).valueToString();
+    return std::make_unique<ast::SettingInstruction>(from, rate, to, &storage);
 }
 
 

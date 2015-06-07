@@ -21,8 +21,17 @@ Token::Token(int i)
 
 Token::Token(std::string s)
 {
-    type = Type::AlphaNum;
-    alphanumValue = s;
+    for(int i = 0; i < s.length(); i++)
+    {
+        if ( !isdigit(s[i]) )
+        {
+            type = Type::AlphaNum;
+            alphanumValue = s;
+            return;
+        }
+    }
+    value.integer = std::stoi(s);
+    type = Type::Integer;
 }
 
 Token::Token(ast::Operator o)
