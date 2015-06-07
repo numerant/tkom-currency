@@ -51,8 +51,8 @@ std::unique_ptr<ast::Program> Parser::readInputInstr()
 {
     if (checkTokenValue("SET"))
         return readSettingInstr();
-//    else if (checkTokenValue("FUNCTION"))
-//        return readFuncDefinition();
+    else if (checkTokenValue("FUNCTION"))
+        return readFuncDefinition();
 //    else if (checkTokenValue("NUM"))
 //        return readNumVarDeclaration();
 //    else if (checkTokenValue("PRINT"))
@@ -140,6 +140,32 @@ std::unique_ptr<ast::Amount> Parser::readAmount()
 
     return std::make_unique<ast::Amount>(integer, fraction);
 }
+
+std::unique_ptr<ast::FuncDefinition> Parser::readFuncDefinition()
+{
+    advance();
+
+    std::string funcName = requireToken(Token::Type::AlphaNum).valueToString();
+    advance();
+
+    if (!checkTokenValue("{"))
+        throwOnUnexpectedInput();
+    advance();
+
+    auto sequence = readInstrSequence();
+
+    if (!checkTokenValue("}"))
+        throwOnUnexpectedInput();
+    advance();
+
+    return std::make_unique<ast::FuncDefinition>(funcName, std::move(sequence));
+}
+
+std::unique_ptr<ast::InstrSequence> Parser::readInstrSequence()
+{
+
+}
+
 
 void Parser::throwOnUnexpectedInput()
 {

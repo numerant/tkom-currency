@@ -39,7 +39,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Assignment.o \
 	${OBJECTDIR}/src/ast/Bracket.o \
 	${OBJECTDIR}/src/ast/CurrVarDeclaration.o \
+	${OBJECTDIR}/src/ast/FuncDefinition.o \
 	${OBJECTDIR}/src/ast/InputInstruction.o \
+	${OBJECTDIR}/src/ast/InstrSequence.o \
 	${OBJECTDIR}/src/ast/Instruction.o \
 	${OBJECTDIR}/src/ast/InstructionLink.o \
 	${OBJECTDIR}/src/ast/NumVarDeclaration.o \
@@ -101,10 +103,20 @@ ${OBJECTDIR}/src/ast/CurrVarDeclaration.o: src/ast/CurrVarDeclaration.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/CurrVarDeclaration.o src/ast/CurrVarDeclaration.cpp
 
+${OBJECTDIR}/src/ast/FuncDefinition.o: src/ast/FuncDefinition.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/FuncDefinition.o src/ast/FuncDefinition.cpp
+
 ${OBJECTDIR}/src/ast/InputInstruction.o: src/ast/InputInstruction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/InputInstruction.o src/ast/InputInstruction.cpp
+
+${OBJECTDIR}/src/ast/InstrSequence.o: src/ast/InstrSequence.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/InstrSequence.o src/ast/InstrSequence.cpp
 
 ${OBJECTDIR}/src/ast/Instruction.o: src/ast/Instruction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
