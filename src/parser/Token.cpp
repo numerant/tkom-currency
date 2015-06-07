@@ -91,7 +91,7 @@ std::string Token::valueToString()
         case Type::Bracket:
             return ast::toString(value.bracket);
         case Type::Integer:
-            return value.integer;
+            return std::to_string(value.integer);
         case Type::Operator:
             return ast::toString(value.oper);
         default:
