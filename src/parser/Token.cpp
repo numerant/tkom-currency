@@ -21,12 +21,12 @@ Token::Token(int i)
 
 Token::Token(std::string s)
 {
+    alphanumValue = s;
     for(int i = 0; i < s.length(); i++)
     {
         if ( !isdigit(s[i]) )
         {
             type = Type::AlphaNum;
-            alphanumValue = s;
             return;
         }
     }
@@ -91,7 +91,7 @@ std::string Token::valueToString()
         case Type::Bracket:
             return ast::toString(value.bracket);
         case Type::Integer:
-            return std::to_string(value.integer);
+            return alphanumValue;
         case Type::Operator:
             return ast::toString(value.oper);
         default:

@@ -81,7 +81,7 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
     requireToken(Token::Type::AlphaNum);
     std::string from = requireToken(Token::Type::AlphaNum).valueToString();
 
-    bmp::cpp_dec_float_50 rate;
+    auto rate = readAmount()->getValue();
     // readAmount;
     std::string to = requireToken(Token::Type::AlphaNum).valueToString();
     return std::make_unique<ast::SettingInstruction>(from, rate, to, &storage);
@@ -100,6 +100,37 @@ std::unique_ptr<ast::Bracket> Parser::readBracket()
     const auto value = requireToken(Token::Type::Bracket).getBracket();
     advance();
     return std::make_unique<Bracket>(value);
+}
+
+std::unique_ptr<ast::Amount> Parser::readAmount()
+{
+    bool negative = false;
+    int integer;
+    std::string fraction;
+    if (checkTokenValue("("))
+    {
+        requireToken(Token::Type::Operator);
+        if (!checkTokenValue("-"))
+            throwOnUnexpectedInput();
+        requireToken(Token::Type::Operator);
+        negative = true;
+    }
+
+    integer = requireToken(Token::Type::Integer).getInteger();
+    if (checkTokenValue("."))
+    {
+        requireToken(Token::Type::Operator);
+        fraction = requireToken(Token::Type::Integer).valueToString();
+    }
+    if (negative)
+    {
+        integer *= -1;
+        if (!checkTokenValue(")"))
+            throwOnUnexpectedInput();
+        requireToken(Token::Type::Operator);
+    }
+
+    return std::make_unique<ast::Amount>(integer, fraction);
 }
 
 void Parser::throwOnUnexpectedInput()

@@ -7,6 +7,7 @@
 #include "../ast/InstructionLink.h"
 #include "../ast/InputInstruction.h"
 #include "../ast/SettingInstruction.h"
+#include "../ast/Amount.h"
 #include "../data/ExchangeRateStorage.h"
 
 namespace parser
@@ -26,6 +27,7 @@ namespace parser
         std::unique_ptr<ast::SettingInstruction> readSettingInstr();
         std::unique_ptr<ast::Operator> readOperator();
         std::unique_ptr<ast::Bracket> readBracket();
+        std::unique_ptr<ast::Amount> readAmount();
 
         /* Helper methods */
         void throwOnUnexpectedInput();
