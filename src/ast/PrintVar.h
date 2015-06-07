@@ -10,7 +10,7 @@ using namespace std;
 namespace ast
 {
 
-    class PrintVar : Instruction
+    class PrintVar : public Instruction
     {
     public:
         PrintVar(string varName);

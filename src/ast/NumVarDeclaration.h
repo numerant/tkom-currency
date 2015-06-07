@@ -11,7 +11,7 @@ using namespace std;
 namespace ast
 {
 
-    class NumVarDeclaration : VarDeclaration
+    class NumVarDeclaration : public VarDeclaration
     {
     public:
         NumVarDeclaration(string name, unique_ptr<RValue> asgRValue);

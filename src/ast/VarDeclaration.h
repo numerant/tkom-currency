@@ -6,7 +6,7 @@
 namespace ast
 {
 
-    class VarDeclaration : Instruction
+    class VarDeclaration : public Instruction
     {
     public:
         virtual ~VarDeclaration();

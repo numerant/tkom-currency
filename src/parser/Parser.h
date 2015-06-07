@@ -5,6 +5,7 @@
 #include "Scanner.h"
 #include "../ast/Program.h"
 #include "../ast/InstructionLink.h"
+#include "../ast/InputInstruction.h"
 
 namespace parser
 {
@@ -20,6 +21,8 @@ namespace parser
         std::unique_ptr<ast::Program> readProgram();
         std::unique_ptr<ast::Program> readInstructionLink(std::unique_ptr<ast::Program> leftOperand);
         std::unique_ptr<ast::Program> readInputInstr();
+        std::unique_ptr<ast::Operator> readOperator();
+        std::unique_ptr<ast::Bracket> readBracket();
 
         /* Helper methods */
         void throwOnUnexpectedInput(Token::Type expected);
