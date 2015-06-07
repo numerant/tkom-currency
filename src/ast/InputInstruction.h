@@ -11,7 +11,7 @@ namespace ast
     class InputInstruction : public Program
     {
     public:
-        InputInstruction(std::string value);
+        virtual ~InputInstruction();
 
         int execute() const override;
         std::string toString() const override;

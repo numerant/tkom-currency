@@ -49,10 +49,38 @@ std::unique_ptr<ast::Program> Parser::readInstructionLink(std::unique_ptr<ast::P
 
 std::unique_ptr<ast::Program> Parser::readInputInstr()
 {
-    const auto value = requireToken(Token::Type::AlphaNum).valueToString();
-    advance();
-    return std::make_unique<InputInstruction>(value);
+    if (checkTokenValue("SET"))
+        return readSettingInstr();
+//    else if (checkTokenValue("FUNCTION"))
+//        return readFuncDefinition();
+//    else if (checkTokenValue("NUM"))
+//        return readNumVarDeclaration();
+//    else if (checkTokenValue("PRINT"))
+//        return readPrintInstr();
+//    else if (checkTokenValue("$"))
+//        return readAssignment();
+//    else if (checkTokenValue("IF"))
+//        return readIfStatement();
+//    else if (checkTokenValue("WHILE"))
+//        return readLoopStatement();
+//
+//    Token first = requireToken(Token::Type::AlphaNum);
+//    if (checkTokenValue("="))
+//        return readAssignment(first);
+//    else if (checkTokenValue("("))
+//        return readFuncCall(first);
+//    else if (checkTokenType(Token::Type::AlphaNum))
+//        return readNamedVarDeclaration(first);
+    else
+        throwOnUnexpectedInput();
+
 }
+
+std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
+{
+
+}
+
 
 std::unique_ptr<ast::Operator> Parser::readOperator()
 {
@@ -66,6 +94,11 @@ std::unique_ptr<ast::Bracket> Parser::readBracket()
     const auto value = requireToken(Token::Type::Bracket).getBracket();
     advance();
     return std::make_unique<Bracket>(value);
+}
+
+void Parser::throwOnUnexpectedInput()
+{
+    throw std::runtime_error("Unexpected token: " + scanner->getToken().toString());
 }
 
 void Parser::throwOnUnexpectedInput(Token::Type expected)

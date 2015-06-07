@@ -7,6 +7,7 @@
       <itemPath>src/ast/Assignment.h</itemPath>
       <itemPath>src/ast/Bracket.h</itemPath>
       <itemPath>src/ast/CurrVarDeclaration.h</itemPath>
+      <itemPath>src/data/ExchangeRateStorage.h</itemPath>
       <itemPath>src/ast/InputInstruction.h</itemPath>
       <itemPath>src/ast/Instruction.h</itemPath>
       <itemPath>src/ast/InstructionLink.h</itemPath>
@@ -17,6 +18,7 @@
       <itemPath>src/ast/Program.h</itemPath>
       <itemPath>src/ast/RValue.h</itemPath>
       <itemPath>src/parser/Scanner.h</itemPath>
+      <itemPath>src/ast/SettingInstruction.h</itemPath>
       <itemPath>src/parser/Token.h</itemPath>
       <itemPath>src/ast/VarDeclaration.h</itemPath>
     </logicalFolder>
@@ -30,6 +32,7 @@
       <itemPath>src/ast/Assignment.cpp</itemPath>
       <itemPath>src/ast/Bracket.cpp</itemPath>
       <itemPath>src/ast/CurrVarDeclaration.cpp</itemPath>
+      <itemPath>src/data/ExchangeRateStorage.cpp</itemPath>
       <itemPath>src/ast/InputInstruction.cpp</itemPath>
       <itemPath>src/ast/Instruction.cpp</itemPath>
       <itemPath>src/ast/InstructionLink.cpp</itemPath>
@@ -40,6 +43,7 @@
       <itemPath>src/ast/Program.cpp</itemPath>
       <itemPath>src/ast/RValue.cpp</itemPath>
       <itemPath>src/parser/Scanner.cpp</itemPath>
+      <itemPath>src/ast/SettingInstruction.cpp</itemPath>
       <itemPath>src/parser/Token.cpp</itemPath>
       <itemPath>src/ast/VarDeclaration.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
@@ -122,9 +126,17 @@
       </item>
       <item path="src/ast/RValue.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/ast/SettingInstruction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/SettingInstruction.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/VarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/VarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/data/ExchangeRateStorage.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/data/ExchangeRateStorage.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -205,9 +217,17 @@
       </item>
       <item path="src/ast/RValue.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/ast/SettingInstruction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/SettingInstruction.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/ast/VarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/VarDeclaration.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/data/ExchangeRateStorage.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/data/ExchangeRateStorage.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>

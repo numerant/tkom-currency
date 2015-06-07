@@ -46,7 +46,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/PrintVar.o \
 	${OBJECTDIR}/src/ast/Program.o \
 	${OBJECTDIR}/src/ast/RValue.o \
+	${OBJECTDIR}/src/ast/SettingInstruction.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
+	${OBJECTDIR}/src/data/ExchangeRateStorage.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/parser/Parser.o \
 	${OBJECTDIR}/src/parser/Scanner.o \
@@ -132,10 +134,20 @@ ${OBJECTDIR}/src/ast/RValue.o: src/ast/RValue.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/RValue.o src/ast/RValue.cpp
 
+${OBJECTDIR}/src/ast/SettingInstruction.o: src/ast/SettingInstruction.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/SettingInstruction.o src/ast/SettingInstruction.cpp
+
 ${OBJECTDIR}/src/ast/VarDeclaration.o: src/ast/VarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/VarDeclaration.o src/ast/VarDeclaration.cpp
+
+${OBJECTDIR}/src/data/ExchangeRateStorage.o: src/data/ExchangeRateStorage.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/data
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/data/ExchangeRateStorage.o src/data/ExchangeRateStorage.cpp
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

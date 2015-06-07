@@ -4,9 +4,9 @@
 
 using namespace ast;
 
-InputInstruction::InputInstruction(std::string value)
+InputInstruction::~InputInstruction()
 {
-    this->value = value;
+
 }
 
 int InputInstruction::execute() const
