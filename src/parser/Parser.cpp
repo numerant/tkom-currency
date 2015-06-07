@@ -61,8 +61,8 @@ std::unique_ptr<ast::Program> Parser::readInputInstr()
 
 std::unique_ptr<ast::Instruction> Parser::readInstruction()
 {
-//    else if (checkTokenValue("NUM"))
-//        return readNumVarDeclaration();
+    if (checkTokenValue("NUM"))
+        return readNumVarDeclaration();
 //    else if (checkTokenValue("PRINT"))
 //        return readPrintInstr();
 //    else if (checkTokenValue("$"))
@@ -169,9 +169,38 @@ std::unique_ptr<ast::FuncDefinition> Parser::readFuncDefinition()
 
 std::unique_ptr<ast::InstrSequence> Parser::readInstrSequence()
 {
-    auto rightOperand = readInstruction();
-    return make_unique<ast::InstrSequence>(std::move(leftOperand),
-            std::move(rightOperand));
+//    auto instr = readInstruction();
+//    while ( true )
+//    {
+//        if (!checkTokenValue(";") && !checkTokenValue("}"))
+//            throwOnUnexpectedInput(Token::Type::Operator);
+//
+//        if(checkTokenType(Token::Type::Bracket))
+//            readBracket();
+//        else
+//            readOperator();
+//
+//        if (!checkTokenType(Token::Type::Eof))
+//            instr = readInstructionLink(std::move(instr));
+//        else
+//            break;
+//    }
+//
+//    return instr;
+}
+
+std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
+{
+    advance();
+    std::string varName = requireToken(Token::Type::AlphaNum).valueToString();
+    advance();
+    if (!checkTokenValue("="))
+        throwOnUnexpectedInput();
+    advance();
+    //Currency amount = readAmount()->getValue(); EXPRESSION
+    advance();
+
+    //return std::make_unique<ast::NumVarDeclaration>(varName, amount);
 }
 
 

@@ -39,6 +39,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Assignment.o \
 	${OBJECTDIR}/src/ast/Bracket.o \
 	${OBJECTDIR}/src/ast/CurrVarDeclaration.o \
+	${OBJECTDIR}/src/ast/Expression.o \
+	${OBJECTDIR}/src/ast/Factor.o \
 	${OBJECTDIR}/src/ast/FuncDefinition.o \
 	${OBJECTDIR}/src/ast/InputInstruction.o \
 	${OBJECTDIR}/src/ast/InstrSequence.o \
@@ -51,6 +53,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Program.o \
 	${OBJECTDIR}/src/ast/RValue.o \
 	${OBJECTDIR}/src/ast/SettingInstruction.o \
+	${OBJECTDIR}/src/ast/Term.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
 	${OBJECTDIR}/src/data/ExchangeRateStorage.o \
 	${OBJECTDIR}/src/main.o \
@@ -102,6 +105,16 @@ ${OBJECTDIR}/src/ast/CurrVarDeclaration.o: src/ast/CurrVarDeclaration.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/CurrVarDeclaration.o src/ast/CurrVarDeclaration.cpp
+
+${OBJECTDIR}/src/ast/Expression.o: src/ast/Expression.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Expression.o src/ast/Expression.cpp
+
+${OBJECTDIR}/src/ast/Factor.o: src/ast/Factor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Factor.o src/ast/Factor.cpp
 
 ${OBJECTDIR}/src/ast/FuncDefinition.o: src/ast/FuncDefinition.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
@@ -162,6 +175,11 @@ ${OBJECTDIR}/src/ast/SettingInstruction.o: src/ast/SettingInstruction.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/SettingInstruction.o src/ast/SettingInstruction.cpp
+
+${OBJECTDIR}/src/ast/Term.o: src/ast/Term.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Term.o src/ast/Term.cpp
 
 ${OBJECTDIR}/src/ast/VarDeclaration.o: src/ast/VarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast

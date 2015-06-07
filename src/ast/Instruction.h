@@ -7,7 +7,7 @@
 namespace ast
 {
 
-    class Instruction : InputInstruction
+    class Instruction : public InputInstruction
     {
     public:
         virtual ~Instruction();
