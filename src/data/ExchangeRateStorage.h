@@ -3,7 +3,7 @@
 
 #include <map>
 #include <utility>
-#include "../ast/Currency.h"
+#include "../ast/NumValue.h"
 
 namespace bmp = boost::multiprecision;
 
@@ -13,10 +13,10 @@ namespace data
     class ExchangeRateStorage
     {
     public:
-        void setRate(std::string from, std::string to, Currency rate);
-        Currency getRate(std::string from, std::string to);
+        void setRate(std::string from, std::string to, NumValue rate);
+        NumValue getRate(std::string from, std::string to);
     private:
-        std::map<std::pair<std::string, std::string>, Currency> storage;
+        std::map<std::pair<std::string, std::string>, NumValue> storage;
     };
 
 }

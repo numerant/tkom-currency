@@ -2,7 +2,7 @@
 
 using namespace ast;
 
-CurrVarDeclaration::CurrVarDeclaration(string currency, string name, unique_ptr<RValue> asgRValue)
+CurrVarDeclaration::CurrVarDeclaration(string currency, string name, unique_ptr<Value> asgRValue)
 {
     this->currency = currency;
     this->name = name;

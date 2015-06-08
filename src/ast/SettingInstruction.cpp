@@ -4,7 +4,7 @@
 
 using namespace ast;
 
-SettingInstruction::SettingInstruction(std::string currFrom, Currency rate, std::string currTo,
+SettingInstruction::SettingInstruction(std::string currFrom, NumValue rate, std::string currTo,
         data::ExchangeRateStorage *storage)
 {
     this->currFrom = currFrom;

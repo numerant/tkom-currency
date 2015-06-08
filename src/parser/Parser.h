@@ -3,8 +3,9 @@
 
 #include <memory>
 #include "Scanner.h"
-#include "../ast/Currency.h"
+#include "../ast/NumValue.h"
 #include "../ast/Program.h"
+#include "../ast/Expression.h"
 #include "../ast/InstructionLink.h"
 #include "../ast/Instruction.h"
 #include "../ast/InputInstruction.h"
@@ -13,6 +14,8 @@
 #include "../ast/FuncDefinition.h"
 #include "../ast/NumVarDeclaration.h"
 #include "../ast/Amount.h"
+#include "../ast/Term.h"
+#include "../ast/Factor.h"
 #include "../data/ExchangeRateStorage.h"
 
 namespace parser
@@ -37,6 +40,9 @@ namespace parser
         std::unique_ptr<ast::FuncDefinition> readFuncDefinition();
         std::unique_ptr<ast::InstrSequence> readInstrSequence();
         std::unique_ptr<ast::NumVarDeclaration> readNumVarDeclaration();
+        std::unique_ptr<ast::Expression> readExpression();
+        std::unique_ptr<ast::Term> readTerm();
+        std::unique_ptr<ast::Factor> readFactor();
 
         /* Helper methods */
         void throwOnUnexpectedInput();

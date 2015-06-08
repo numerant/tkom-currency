@@ -2,7 +2,8 @@
 
 using namespace ast;
 
-Expression::Expression()
+Expression::~Expression()
 {
 
 }
+

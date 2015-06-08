@@ -37,7 +37,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Amount.o \
 	${OBJECTDIR}/src/ast/Assignment.o \
+	${OBJECTDIR}/src/ast/BinaryExpression.o \
+	${OBJECTDIR}/src/ast/BinaryTerm.o \
 	${OBJECTDIR}/src/ast/Bracket.o \
+	${OBJECTDIR}/src/ast/CurrValue.o \
 	${OBJECTDIR}/src/ast/CurrVarDeclaration.o \
 	${OBJECTDIR}/src/ast/Expression.o \
 	${OBJECTDIR}/src/ast/Factor.o \
@@ -51,9 +54,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Operator.o \
 	${OBJECTDIR}/src/ast/PrintVar.o \
 	${OBJECTDIR}/src/ast/Program.o \
-	${OBJECTDIR}/src/ast/RValue.o \
 	${OBJECTDIR}/src/ast/SettingInstruction.o \
 	${OBJECTDIR}/src/ast/Term.o \
+	${OBJECTDIR}/src/ast/Value.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
 	${OBJECTDIR}/src/data/ExchangeRateStorage.o \
 	${OBJECTDIR}/src/main.o \
@@ -96,10 +99,25 @@ ${OBJECTDIR}/src/ast/Assignment.o: src/ast/Assignment.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Assignment.o src/ast/Assignment.cpp
 
+${OBJECTDIR}/src/ast/BinaryExpression.o: src/ast/BinaryExpression.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/BinaryExpression.o src/ast/BinaryExpression.cpp
+
+${OBJECTDIR}/src/ast/BinaryTerm.o: src/ast/BinaryTerm.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/BinaryTerm.o src/ast/BinaryTerm.cpp
+
 ${OBJECTDIR}/src/ast/Bracket.o: src/ast/Bracket.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Bracket.o src/ast/Bracket.cpp
+
+${OBJECTDIR}/src/ast/CurrValue.o: src/ast/CurrValue.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/CurrValue.o src/ast/CurrValue.cpp
 
 ${OBJECTDIR}/src/ast/CurrVarDeclaration.o: src/ast/CurrVarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
@@ -166,11 +184,6 @@ ${OBJECTDIR}/src/ast/Program.o: src/ast/Program.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Program.o src/ast/Program.cpp
 
-${OBJECTDIR}/src/ast/RValue.o: src/ast/RValue.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/ast
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/RValue.o src/ast/RValue.cpp
-
 ${OBJECTDIR}/src/ast/SettingInstruction.o: src/ast/SettingInstruction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
@@ -180,6 +193,11 @@ ${OBJECTDIR}/src/ast/Term.o: src/ast/Term.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Term.o src/ast/Term.cpp
+
+${OBJECTDIR}/src/ast/Value.o: src/ast/Value.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Value.o src/ast/Value.cpp
 
 ${OBJECTDIR}/src/ast/VarDeclaration.o: src/ast/VarDeclaration.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast

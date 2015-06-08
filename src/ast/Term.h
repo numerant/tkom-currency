@@ -10,10 +10,7 @@ namespace ast
     class Term : public Expression
     {
     public:
-        Term(std::unique_ptr<Term> factor);
-        int calculate() const override;
-    private:
-        std::unique_ptr<Term> factor;
+        virtual ~Term();
     };
 
 }

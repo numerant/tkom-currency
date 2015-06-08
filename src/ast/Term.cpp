@@ -2,13 +2,7 @@
 
 using namespace ast;
 
-Term::Term(std::unique_ptr<Term> term)
+Term::~Term()
 {
 
 }
-
-int Term::calculate() const
-{
-
-}
-

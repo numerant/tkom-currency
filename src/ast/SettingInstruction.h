@@ -2,7 +2,7 @@
 #define	SETTINGINSTRUCTION_H
 
 #include <memory>
-#include "Currency.h"
+#include "NumValue.h"
 #include "InputInstruction.h"
 #include "../data/ExchangeRateStorage.h"
 
@@ -14,7 +14,7 @@ namespace ast
     class SettingInstruction : public InputInstruction
     {
     public:
-        SettingInstruction(std::string currFrom, Currency rate, std::string currTo,
+        SettingInstruction(std::string currFrom, NumValue rate, std::string currTo,
                 data::ExchangeRateStorage *storage);
 
         int execute() const override;
@@ -23,7 +23,7 @@ namespace ast
 
         std::string currFrom;
         std::string currTo;
-        Currency rate;
+        NumValue rate;
         data::ExchangeRateStorage *storage;
     };
 

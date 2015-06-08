@@ -2,7 +2,7 @@
 #define	CURRVARDECLARATION_H
 
 #include "VarDeclaration.h"
-#include "RValue.h"
+#include "Value.h"
 
 #include <memory>
 
@@ -14,13 +14,13 @@ namespace ast
     class CurrVarDeclaration : VarDeclaration
     {
     public:
-        CurrVarDeclaration(string currency, string name, unique_ptr<RValue> asgRValue);
+        CurrVarDeclaration(string currency, string name, unique_ptr<Value> asgRValue);
         CurrVarDeclaration(string currency, string name, string asgVarName);
         int execute() const override;
     private:
         string currency;
         string name;
-        unique_ptr<RValue> assignmentRValue;
+        unique_ptr<Value> assignmentRValue;
         string assignmentVarName;
 
     };

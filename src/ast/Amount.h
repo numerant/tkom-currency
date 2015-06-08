@@ -3,7 +3,7 @@
 
 #include <sstream>
 #include <string>
-#include "Currency.h"
+#include "NumValue.h"
 
 namespace bmp = boost::multiprecision;
 
@@ -16,9 +16,9 @@ namespace ast
         Amount(int integer);
         Amount(int integer, std::string fraction);
         std::string toString() const;
-        Currency getValue() const;
+        NumValue getValue() const;
     private:
-        Currency value;
+        NumValue value;
     };
 
 }

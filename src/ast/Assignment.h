@@ -2,7 +2,7 @@
 #define	ASSIGNMENT_H
 
 #include "Instruction.h"
-#include "RValue.h"
+#include "Value.h"
 
 using namespace std;
 
@@ -16,7 +16,7 @@ namespace ast
 
     private:
         string varToChange;
-        RValue rvalue;
+        Value rvalue;
         string newVar;
         //FuncCall function;
 

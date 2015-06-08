@@ -92,7 +92,7 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
         throwOnUnexpectedInput();
     advance();
 
-    Currency rate = readAmount()->getValue();
+    NumValue rate = readAmount()->getValue();
     // readAmount;
     std::string to = requireToken(Token::Type::AlphaNum).valueToString();
     advance();
@@ -201,6 +201,38 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
     advance();
 
     //return std::make_unique<ast::NumVarDeclaration>(varName, amount);
+}
+
+std::unique_ptr<ast::Expression> Parser::readExpression()
+{
+    auto instr = readTerm();
+//    while ( true )
+//    {
+//        if (requireToken(Token::Type::Operator).getOperator() == Operator::
+//            throwOnUnexpectedInput(Token::Type::Operator);
+//
+//        if(checkTokenType(Token::Type::Bracket))
+//            readBracket();
+//        else
+//            readOperator();
+//
+//        if (!checkTokenType(Token::Type::Eof))
+//            instr = readInstructionLink(std::move(instr));
+//        else
+//            break;
+//    }
+
+    return instr;
+}
+
+std::unique_ptr<ast::Term> Parser::readTerm()
+{
+
+}
+
+std::unique_ptr<ast::Factor> Parser::readFactor()
+{
+
 }
 
 
