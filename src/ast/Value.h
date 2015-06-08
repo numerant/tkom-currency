@@ -18,7 +18,7 @@ namespace ast
     {
     public:
         Value(NumValue numeric);
-        Value(CurrValue currency, std::string targetCurrency);
+        Value(CurrValue currency, std::string targetCurrency, data::ExchangeRateStorage *storage);
 
         std::string toString();
         Value& operator=(Value b);
@@ -32,6 +32,7 @@ namespace ast
         ValueType type;
         NumValue numeric;
         CurrValue currency;
+        data::ExchangeRateStorage *storage;
     };
 
 }

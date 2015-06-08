@@ -4,12 +4,13 @@ using namespace ast;
 
 Value::Value(NumValue numeric)
 {
-
+    storage->getRate()
 }
 
-Value::Value(CurrValue currency, std::string targetCurrency)
+Value::Value(CurrValue currency, std::string targetCurrency, data::ExchangeRateStorage *storage)
 {
     this->currency = currency.convertTo(targetCurrency);
+    this->storage = storage;
 }
 
 Value& Value::operator=(Value assigned)

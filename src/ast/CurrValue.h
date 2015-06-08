@@ -10,8 +10,10 @@ namespace ast
     class CurrValue
     {
     public:
+        CurrValue(NumValue value, std::string currency, data::ExchangeRateStorage *storage);
         CurrValue convertTo(std::string targetCurrency);
         std::string getCurrency();
+        std::string toString();
 
         CurrValue operator+(CurrValue b);
         CurrValue operator-(CurrValue b);
@@ -20,6 +22,7 @@ namespace ast
     private:
         void throwInvalidOperation();
 
+        data::ExchangeRateStorage *storage;
         std::string currency;
         NumValue value;
     };
