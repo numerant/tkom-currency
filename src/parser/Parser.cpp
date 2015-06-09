@@ -198,6 +198,7 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
     advance();
 
     std::cout << expression->toString() << std::endl;
+    std::cout << expression->calculate().toString() << std::endl;
 
     return std::make_unique<ast::NumVarDeclaration>(varName, std::move(expression));
 }

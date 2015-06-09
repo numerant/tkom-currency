@@ -43,6 +43,8 @@ Value Value::operator+(Value summand)
     else
         newValue.currency = newValue.currency.convertTo(this->currency.getCurrency())
         + summand.currency.convertTo(this->currency.getCurrency());
+
+    return newValue;
 }
 
 Value Value::operator-(Value subtrahend)
@@ -53,7 +55,7 @@ Value Value::operator-(Value subtrahend)
         throwInvalidOperation();
 
     if (newValue.type == ValueType::Numeric)
-        newValue.numeric += subtrahend.numeric;
+        newValue.numeric -= subtrahend.numeric;
     else
         newValue.currency = newValue.currency.convertTo(this->currency.getCurrency())
         - subtrahend.currency.convertTo(this->currency.getCurrency());
