@@ -27,7 +27,7 @@ namespace ast
         Value operator*(Value b);
         Value operator/(Value b);
     private:
-        void throwInvalidOperation();
+        void throwInvalidOperation(Value second);
 
         ValueType type;
         NumValue numeric;

@@ -21,7 +21,7 @@ Value& Value::operator=(Value assigned)
         return *this;
 
     if (this->type != assigned.type)
-        throwInvalidOperation();
+        throwInvalidOperation(assigned);
 
     if (this->type == ValueType::Numeric)
         this->numeric = assigned.numeric;
@@ -36,7 +36,7 @@ Value Value::operator+(Value summand)
     Value newValue = *this;
 
     if (newValue.type != summand.type)
-        throwInvalidOperation();
+        throwInvalidOperation(summand);
 
     if (newValue.type == ValueType::Numeric)
         newValue.numeric += summand.numeric;
@@ -52,7 +52,7 @@ Value Value::operator-(Value subtrahend)
     Value newValue = *this;
 
     if (newValue.type != subtrahend.type)
-        throwInvalidOperation();
+        throwInvalidOperation(subtrahend);
 
     if (newValue.type == ValueType::Numeric)
         newValue.numeric -= subtrahend.numeric;
@@ -67,14 +67,20 @@ Value Value::operator*(Value multiplier)
 {
     Value newValue = *this;
 
-    if (newValue.type == multiplier.type && newValue.type == ValueType::Currency)
-        throwInvalidOperation();
+    if (multiplier.type == ValueType::Currency && newValue.type == ValueType::Currency)
+        throwInvalidOperation(multiplier);
 
-    if (newValue.type == ValueType::Numeric)
-        newValue.numeric = newValue.numeric * multiplier.numeric;
-    else
-        newValue.currency = newValue.currency.convertTo(this->currency.getCurrency())
+    if (multiplier.type == ValueType::Currency && newValue.type == ValueType::Numeric  )
+    {
+        newValue.currency = multiplier.currency.convertTo(multiplier.currency.getCurrency())
+        * newValue.numeric;
+        newValue.type = ValueType::Currency;
+    }
+    else if (multiplier.type == ValueType::Numeric && newValue.type == ValueType::Currency  )
+        newValue.currency = newValue.currency.convertTo(newValue.currency.getCurrency())
         * multiplier.numeric;
+    else
+        newValue.numeric = newValue.numeric * multiplier.numeric;
 
     return newValue;
 }
@@ -83,8 +89,9 @@ Value Value::operator/(Value divisor)
 {
     Value newValue = *this;
 
-    if (newValue.type == divisor.type && newValue.type == ValueType::Currency)
-        throwInvalidOperation();
+    /* Cannot divide by currency */
+    if (divisor.type == ValueType::Currency)
+        throwInvalidOperation(divisor);
 
     if (newValue.type == ValueType::Numeric)
         newValue.numeric = newValue.numeric / divisor.numeric;
@@ -107,7 +114,7 @@ std::string Value::toString() const
     }
 }
 
-void Value::throwInvalidOperation()
+void Value::throwInvalidOperation(Value second)
 {
-    throw std::runtime_error("Invalid arithmetic operation: " + this->toString());
+    throw std::runtime_error("Invalid arithmetic operation between: " + this->toString() + " and " + second.toString());
 }
