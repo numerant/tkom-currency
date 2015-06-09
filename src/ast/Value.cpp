@@ -4,13 +4,16 @@ using namespace ast;
 
 Value::Value(NumValue numeric)
 {
-    storage->getRate()
+    this->numeric = numeric;
+    this->type = ValueType::Numeric;
+    this->storage = nullptr;
 }
 
-Value::Value(CurrValue currency, std::string targetCurrency, data::ExchangeRateStorage *storage)
+Value::Value(CurrValue currency_, std::string targetCurrency, data::ExchangeRateStorage *storage)
+: currency(currency_.convertTo(targetCurrency))
 {
-    this->currency = currency.convertTo(targetCurrency);
     this->storage = storage;
+    this->type = ValueType::Currency;
 }
 
 Value& Value::operator=(Value assigned)
@@ -40,7 +43,7 @@ Value Value::operator+(Value summand)
         newValue.numeric += summand.numeric;
     else
         newValue.currency = newValue.currency.convertTo(this->currency.getCurrency())
-                + summand.currency.convertTo(this->currency.getCurrency());
+        + summand.currency.convertTo(this->currency.getCurrency());
 }
 
 Value Value::operator-(Value subtrahend)
@@ -54,7 +57,7 @@ Value Value::operator-(Value subtrahend)
         newValue.numeric += subtrahend.numeric;
     else
         newValue.currency = newValue.currency.convertTo(this->currency.getCurrency())
-                - subtrahend.currency.convertTo(this->currency.getCurrency());
+        - subtrahend.currency.convertTo(this->currency.getCurrency());
 
     return newValue;
 }
@@ -70,7 +73,7 @@ Value Value::operator*(Value multiplier)
         newValue.numeric = newValue.numeric * multiplier.numeric;
     else
         newValue.currency = newValue.currency.convertTo(this->currency.getCurrency())
-                * multiplier.numeric;
+        * multiplier.numeric;
 
     return newValue;
 }
@@ -86,7 +89,7 @@ Value Value::operator/(Value divisor)
         newValue.numeric = newValue.numeric / divisor.numeric;
     else
         newValue.currency = newValue.currency.convertTo(this->currency.getCurrency())
-                / divisor.numeric;
+        / divisor.numeric;
 
     return newValue;
 }
@@ -98,5 +101,5 @@ std::string Value::toString()
 
 void Value::throwInvalidOperation()
 {
-    throw std::runtime_error("Invalid arithmetic operation: " +this->toString());
+    throw std::runtime_error("Invalid arithmetic operation: " + this->toString());
 }

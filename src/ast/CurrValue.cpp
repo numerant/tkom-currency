@@ -2,20 +2,27 @@
 
 using namespace ast;
 
-CurrValue::CurrValue(NumValue value, std::string currency, data::ExchangeRateStorage* storage)
+CurrValue::CurrValue()
 {
 
+}
+
+CurrValue::CurrValue(NumValue value, std::string currency, data::ExchangeRateStorage* storage)
+{
+    this->value = value;
+    this->currency = currency;
+    this->storage = storage;
 }
 
 
 CurrValue CurrValue::convertTo(std::string targetCurrency)
 {
-    if (CurrValue.currency == targetCurrency)
+    if (this->currency == targetCurrency)
         return *this;
     try
     {
         CurrValue newValue = *this;
-        NumValue rate = storage->getRate(CurrValue.currency, targetCurrency);
+        NumValue rate = storage->getRate(this->currency, targetCurrency);
         newValue.value *= rate;
         newValue.currency = targetCurrency;
     }
@@ -33,7 +40,9 @@ std::string CurrValue::getCurrency()
 
 std::string CurrValue::toString()
 {
-    return value + " " + currency;
+    std::stringstream str;
+    str << value /* << std::setw(precision) */ << " " << currency;
+    return str.str();
 }
 
 CurrValue CurrValue::operator+(CurrValue summand)

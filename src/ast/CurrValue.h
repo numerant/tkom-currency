@@ -3,6 +3,7 @@
 
 #include <string>
 #include "NumValue.h"
+#include "../data/ExchangeRateStorage.h"
 
 namespace ast
 {
@@ -10,6 +11,7 @@ namespace ast
     class CurrValue
     {
     public:
+        CurrValue();
         CurrValue(NumValue value, std::string currency, data::ExchangeRateStorage *storage);
         CurrValue convertTo(std::string targetCurrency);
         std::string getCurrency();

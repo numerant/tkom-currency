@@ -5,23 +5,20 @@
 
 #include "VarDeclaration.h"
 #include "Value.h"
-
-using namespace std;
-
 namespace ast
 {
 
     class NumVarDeclaration : public VarDeclaration
     {
     public:
-        NumVarDeclaration(string name, unique_ptr<Value> asgRValue);
-        NumVarDeclaration(string name, string asgVarName);
+        NumVarDeclaration(std::string name, std::unique_ptr<Value> asgRValue);
+        NumVarDeclaration(std::string name, std::string asgVarName);
         int execute() const override;
 
     private:
-        string name;
-        unique_ptr<Value> assignmentRValue;
-        string assignmentVarName;
+        std::string name;
+        std::unique_ptr<Value> assignmentRValue;
+        std::string assignmentVarName;
 
     };
 

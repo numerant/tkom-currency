@@ -2,14 +2,14 @@
 
 using namespace ast;
 
-NumVarDeclaration::NumVarDeclaration(string name, unique_ptr<Value> asgRValue)
+NumVarDeclaration::NumVarDeclaration(std::string name, std::unique_ptr<Value> asgRValue)
 {
     this->name = name;
     this->assignmentRValue = move(asgRValue);
     this->assignmentVarName = "";
 }
 
-NumVarDeclaration::NumVarDeclaration(string name, string asgVarName)
+NumVarDeclaration::NumVarDeclaration(std::string name, std::string asgVarName)
 {
     this->name = name;
     this->assignmentRValue = nullptr;
