@@ -5,8 +5,6 @@
 #include <utility>
 #include "../ast/NumValue.h"
 
-namespace bmp = boost::multiprecision;
-
 namespace data
 {
 

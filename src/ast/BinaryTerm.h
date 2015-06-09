@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 #include "Term.h"
-#include "NumValue.h"
+#include "Value.h"
 #include "Operator.h"
 
 namespace ast
@@ -18,11 +18,11 @@ namespace ast
                 std::unique_ptr<Term> rightOperand);
         ~BinaryTerm();
 
-        NumValue calculate() const override;
+        Value calculate() const override;
         std::string toString() const override;
 
     private:
-        NumValue calculate(NumValue leftValue, NumValue rightValue) const;
+        Value calculate(Value leftValue, Value rightValue) const;
 
         std::unique_ptr<Term> leftOperand;
         std::unique_ptr<Term> rightOperand;

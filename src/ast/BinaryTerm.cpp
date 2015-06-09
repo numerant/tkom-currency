@@ -14,14 +14,14 @@ BinaryTerm::~BinaryTerm()
 
 }
 
-NumValue BinaryTerm::calculate() const
+Value BinaryTerm::calculate() const
 {
     const auto leftValue = leftOperand->calculate();
     const auto rightValue = rightOperand->calculate();
     return calculate(leftValue, rightValue);
 }
 
-NumValue BinaryTerm::calculate(NumValue leftValue, NumValue rightValue) const
+Value BinaryTerm::calculate(Value leftValue, Value rightValue) const
 {
     switch (oper)
     {

@@ -2,7 +2,7 @@
 #define	EXPRESSION_H
 
 #include <string>
-#include "NumValue.h"
+#include "Value.h"
 
 namespace ast
 {
@@ -11,7 +11,7 @@ namespace ast
     {
     public:
         virtual ~Expression();
-        virtual NumValue calculate() const = 0;
+        virtual Value calculate() const = 0;
         virtual std::string toString() const = 0;
     };
 

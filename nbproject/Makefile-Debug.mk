@@ -59,6 +59,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Value.o \
 	${OBJECTDIR}/src/ast/VarDeclaration.o \
 	${OBJECTDIR}/src/data/ExchangeRateStorage.o \
+	${OBJECTDIR}/src/data/VariableStorage.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/parser/Parser.o \
 	${OBJECTDIR}/src/parser/Scanner.o \
@@ -208,6 +209,11 @@ ${OBJECTDIR}/src/data/ExchangeRateStorage.o: src/data/ExchangeRateStorage.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/data
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/data/ExchangeRateStorage.o src/data/ExchangeRateStorage.cpp
+
+${OBJECTDIR}/src/data/VariableStorage.o: src/data/VariableStorage.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/data
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/data/VariableStorage.o src/data/VariableStorage.cpp
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

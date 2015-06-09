@@ -1,7 +1,6 @@
 #ifndef VALUE_H
 #define	VALUE_H
 
-#include "Factor.h"
 #include "NumValue.h"
 #include "CurrValue.h"
 

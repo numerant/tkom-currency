@@ -12,7 +12,7 @@ Factor::~Factor()
 
 }
 
-NumValue Factor::calculate() const
+Value Factor::calculate() const
 {
     return operand->calculate();
 }

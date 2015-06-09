@@ -197,8 +197,9 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
     if (!checkTokenValue("="))
         throwOnUnexpectedInput();
     advance();
-    //Currency amount = readAmount()->getValue(); EXPRESSION
+    auto expression = readExpression();
     advance();
+
 
     //return std::make_unique<ast::NumVarDeclaration>(varName, amount);
 }

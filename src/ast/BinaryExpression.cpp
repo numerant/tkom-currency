@@ -16,7 +16,7 @@ BinaryExpression::~BinaryExpression()
 
 }
 
-NumValue BinaryExpression::calculate() const
+Value BinaryExpression::calculate() const
 {
     const auto leftValue = leftOperand->calculate();
     const auto rightValue = rightOperand->calculate();
@@ -29,7 +29,7 @@ std::string BinaryExpression::toString() const
     return leftOperand->toString() + ' ' + toString(oper) + ' ' + rightOperand->toString();
 }
 
-NumValue BinaryExpression::calculate(NumValue leftValue, NumValue rightValue) const
+Value BinaryExpression::calculate(Value leftValue, Value rightValue) const
 {
     switch (oper)
     {

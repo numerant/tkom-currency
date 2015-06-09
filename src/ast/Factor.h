@@ -5,6 +5,7 @@
 #include <string>
 #include "Term.h"
 #include "Expression.h"
+#include "Value.h"
 
 namespace ast
 {
@@ -15,7 +16,7 @@ namespace ast
         Factor(std::unique_ptr<Expression> operand);
         ~Factor();
 
-        NumValue calculate() const override;
+        Value calculate() const override;
         std::string toString() const override;
     private:
         std::unique_ptr<Expression> operand;

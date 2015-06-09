@@ -6,7 +6,7 @@
 
 #include "Expression.h"
 #include "Operator.h"
-#include "NumValue.h"
+#include "Value.h"
 
 
 namespace ast
@@ -20,11 +20,11 @@ namespace ast
                 std::unique_ptr<Expression> rightOperand);
         ~BinaryExpression();
 
-        NumValue calculate() const override;
+        Value calculate() const override;
         std::string toString() const override;
 
     private:
-        NumValue calculate(NumValue leftValue, NumValue rightValue) const;
+        Value calculate(Value leftValue, Value rightValue) const;
 
         std::unique_ptr<Expression> leftOperand;
         std::unique_ptr<Expression> rightOperand;
