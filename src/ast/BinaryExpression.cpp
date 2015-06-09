@@ -33,7 +33,7 @@ Value BinaryExpression::calculate(std::string targetCurr) const
 std::string BinaryExpression::toString() const
 {
     using ast::toString;
-    return leftOperand->toString() + ' ' + toString(oper) + ' ' + rightOperand->toString();
+    return '(' + leftOperand->toString() + ' ' + toString(oper) + ' ' + rightOperand->toString() + ')';
 }
 
 Value BinaryExpression::calculate(Value leftValue, Value rightValue) const

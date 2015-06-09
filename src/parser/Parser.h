@@ -7,6 +7,7 @@
 #include "../ast/NumValue.h"
 #include "../ast/Program.h"
 #include "../ast/Expression.h"
+#include "../ast/BinaryExpression.h"
 #include "../ast/InstructionLink.h"
 #include "../ast/Instruction.h"
 #include "../ast/InputInstruction.h"
@@ -16,6 +17,7 @@
 #include "../ast/NumVarDeclaration.h"
 #include "../ast/Amount.h"
 #include "../ast/Term.h"
+#include "../ast/BinaryTerm.h"
 #include "../ast/Factor.h"
 #include "../data/ExchangeRateStorage.h"
 
@@ -35,15 +37,17 @@ namespace parser
         std::unique_ptr<ast::Program> readInputInstr();
         std::unique_ptr<ast::Instruction> readInstruction();
         std::unique_ptr<ast::SettingInstruction> readSettingInstr();
-        std::unique_ptr<ast::Operator> readOperator();
+        ast::Operator readOperator();
         std::unique_ptr<ast::Bracket> readBracket();
         std::unique_ptr<ast::Amount> readAmount();
         std::unique_ptr<ast::FuncDefinition> readFuncDefinition();
         std::unique_ptr<ast::InstrSequence> readInstrSequence();
         std::unique_ptr<ast::NumVarDeclaration> readNumVarDeclaration();
         std::unique_ptr<ast::Expression> readExpression();
-        std::unique_ptr<ast::Term> readTerm();
-        std::unique_ptr<ast::Factor> readFactor();
+        std::unique_ptr<ast::Expression> readBinaryExpression(std::unique_ptr<ast::Expression> leftExpr);
+        std::unique_ptr<ast::Expression> readTerm();
+        std::unique_ptr<ast::Term> readBinaryTerm(std::unique_ptr<ast::Term> leftTerm);
+        std::unique_ptr<ast::Term> readFactor();
 
         /* Helper methods */
         void throwOnUnexpectedInput();

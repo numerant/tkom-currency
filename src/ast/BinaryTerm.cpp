@@ -21,6 +21,14 @@ Value BinaryTerm::calculate() const
     return calculate(leftValue, rightValue);
 }
 
+Value BinaryTerm::calculate(std::string targetCurr) const
+{
+    const auto leftValue = leftOperand->calculate(targetCurr);
+    const auto rightValue = rightOperand->calculate(targetCurr);
+    return calculate(leftValue, rightValue);
+}
+
+
 Value BinaryTerm::calculate(Value leftValue, Value rightValue) const
 {
     switch (oper)

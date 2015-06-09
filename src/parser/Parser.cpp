@@ -21,12 +21,12 @@ std::unique_ptr<Program> Parser::parse()
 std::unique_ptr<ast::Program> Parser::readProgram()
 {
     auto instr = readInputInstr();
-    while ( true )
+    while (true)
     {
         if (!checkTokenValue(";") && !checkTokenValue("}"))
             throwOnUnexpectedInput(Token::Type::Operator);
 
-        if(checkTokenType(Token::Type::Bracket))
+        if (checkTokenType(Token::Type::Bracket))
             readBracket();
         else
             readOperator();
@@ -63,24 +63,23 @@ std::unique_ptr<ast::Instruction> Parser::readInstruction()
 {
     if (checkTokenValue("NUM"))
         return readNumVarDeclaration();
-//    else if (checkTokenValue("PRINT"))
-//        return readPrintInstr();
-//    else if (checkTokenValue("$"))
-//        return readAssignment();
-//    else if (checkTokenValue("IF"))
-//        return readIfStatement();
-//    else if (checkTokenValue("WHILE"))
-//        return readLoopStatement();
-//
-//    Token first = requireToken(Token::Type::AlphaNum);
-//    if (checkTokenValue("="))
-//        return readAssignment(first);
-//    else if (checkTokenValue("("))
-//        return readFuncCall(first);
-//    else if (checkTokenType(Token::Type::AlphaNum))
-//        return readNamedVarDeclaration(first);
+    //    else if (checkTokenValue("PRINT"))
+    //        return readPrintInstr();
+    //    else if (checkTokenValue("$"))
+    //        return readAssignment();
+    //    else if (checkTokenValue("IF"))
+    //        return readIfStatement();
+    //    else if (checkTokenValue("WHILE"))
+    //        return readLoopStatement();
+    //
+    //    Token first = requireToken(Token::Type::AlphaNum);
+    //    if (checkTokenValue("="))
+    //        return readAssignment(first);
+    //    else if (checkTokenValue("("))
+    //        return readFuncCall(first);
+    //    else if (checkTokenType(Token::Type::AlphaNum))
+    //        return readNamedVarDeclaration(first);
 }
-
 
 std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
 {
@@ -98,12 +97,11 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
     return std::make_unique<ast::SettingInstruction>(from, rate, to, &storage);
 }
 
-
-std::unique_ptr<ast::Operator> Parser::readOperator()
+Operator Parser::readOperator()
 {
     const auto value = requireToken(Token::Type::Operator).getOperator();
     advance();
-    return std::make_unique<Operator>(value);
+    return value;
 }
 
 std::unique_ptr<ast::Bracket> Parser::readBracket()
@@ -168,24 +166,24 @@ std::unique_ptr<ast::FuncDefinition> Parser::readFuncDefinition()
 
 std::unique_ptr<ast::InstrSequence> Parser::readInstrSequence()
 {
-//    auto instr = readInstruction();
-//    while ( true )
-//    {
-//        if (!checkTokenValue(";") && !checkTokenValue("}"))
-//            throwOnUnexpectedInput(Token::Type::Operator);
-//
-//        if(checkTokenType(Token::Type::Bracket))
-//            readBracket();
-//        else
-//            readOperator();
-//
-//        if (!checkTokenType(Token::Type::Eof))
-//            instr = readInstructionLink(std::move(instr));
-//        else
-//            break;
-//    }
-//
-//    return instr;
+    //    auto instr = readInstruction();
+    //    while ( true )
+    //    {
+    //        if (!checkTokenValue(";") && !checkTokenValue("}"))
+    //            throwOnUnexpectedInput(Token::Type::Operator);
+    //
+    //        if(checkTokenType(Token::Type::Bracket))
+    //            readBracket();
+    //        else
+    //            readOperator();
+    //
+    //        if (!checkTokenType(Token::Type::Eof))
+    //            instr = readInstructionLink(std::move(instr));
+    //        else
+    //            break;
+    //    }
+    //
+    //    return instr;
 }
 
 std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
@@ -201,37 +199,44 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
 
     std::cout << expression->toString() << std::endl;
 
-    //return std::make_unique<ast::NumVarDeclaration>(varName, amount);
+    return std::make_unique<ast::NumVarDeclaration>(varName, std::move(expression));
 }
 
 std::unique_ptr<ast::Expression> Parser::readExpression()
 {
-    auto term = readTerm();
-//    while ( true )
-//    {
-//        if (requireToken(Token::Type::Operator).getOperator() == Operator::
-//            throwOnUnexpectedInput(Token::Type::Operator);
-//
-//        if(checkTokenType(Token::Type::Bracket))
-//            readBracket();
-//        else
-//            readOperator();
-//
-//        if (!checkTokenType(Token::Type::Eof))
-//            instr = readInstructionLink(std::move(instr));
-//        else
-//            break;
-//    }
+    auto expression = readTerm();
+    while (checkTokenValue("+") || checkTokenValue("-"))
+        expression = readBinaryExpression(std::move(expression));
+    return expression;
+}
 
+std::unique_ptr<ast::Expression> Parser::readBinaryExpression(std::unique_ptr<ast::Expression> leftExpr)
+{
+    const auto oper = readOperator();
+    auto rightExpr = readTerm();
+    return std::make_unique<BinaryExpression>(std::move(leftExpr),
+            oper,
+            std::move(rightExpr));
+}
+
+std::unique_ptr<ast::Expression> Parser::readTerm()
+{
+    auto term = readFactor();
+    while (checkTokenValue("*") || checkTokenValue("/"))
+        term = readBinaryTerm(std::move(term));
     return term;
 }
 
-std::unique_ptr<ast::Term> Parser::readTerm()
+std::unique_ptr<ast::Term> Parser::readBinaryTerm(std::unique_ptr<ast::Term> leftTerm)
 {
-    auto factor = readFactor();
+    const auto oper = readOperator();
+    auto rightTerm = readFactor();
+    return std::make_unique<BinaryTerm>(std::move(leftTerm),
+            oper,
+            std::move(rightTerm));
 }
 
-std::unique_ptr<ast::Factor> Parser::readFactor()
+std::unique_ptr<ast::Term> Parser::readFactor()
 {
     /* If factor contains another expression (in brackets) */
     if (checkTokenValue("("))
@@ -260,7 +265,6 @@ std::unique_ptr<ast::Factor> Parser::readFactor()
         return std::make_unique<Factor>(value);
     }
 }
-
 
 void Parser::throwOnUnexpectedInput()
 {
