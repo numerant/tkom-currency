@@ -93,7 +93,6 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
     advance();
 
     NumValue rate = readAmount()->getValue();
-    // readAmount;
     std::string to = requireToken(Token::Type::AlphaNum).valueToString();
     advance();
     return std::make_unique<ast::SettingInstruction>(from, rate, to, &storage);
@@ -200,13 +199,14 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
     auto expression = readExpression();
     advance();
 
+    std::cout << expression->toString() << std::endl;
 
     //return std::make_unique<ast::NumVarDeclaration>(varName, amount);
 }
 
 std::unique_ptr<ast::Expression> Parser::readExpression()
 {
-    auto instr = readTerm();
+    auto term = readTerm();
 //    while ( true )
 //    {
 //        if (requireToken(Token::Type::Operator).getOperator() == Operator::
@@ -223,17 +223,42 @@ std::unique_ptr<ast::Expression> Parser::readExpression()
 //            break;
 //    }
 
-    return instr;
+    return term;
 }
 
 std::unique_ptr<ast::Term> Parser::readTerm()
 {
-
+    auto factor = readFactor();
 }
 
 std::unique_ptr<ast::Factor> Parser::readFactor()
 {
+    /* If factor contains another expression (in brackets) */
+    if (checkTokenValue("("))
+    {
+        advance();
+        std::unique_ptr<Expression> expression = readExpression();
+        if (!checkTokenValue(")"))
+            throwOnUnexpectedInput();
+        advance();
 
+        return std::make_unique<Factor>(std::move(expression));
+    }
+    if (checkTokenType(Token::Type::Integer))
+    {
+        NumValue amount = readAmount()->getValue();
+
+        if (checkTokenType(Token::Type::AlphaNum))
+        {
+            std::string currency = requireToken(Token::Type::AlphaNum).valueToString();
+            advance();
+            CurrValue currValue(amount, currency, &storage);
+            Value value(currValue);
+            return std::make_unique<Factor>(value);
+        }
+        Value value(amount);
+        return std::make_unique<Factor>(value);
+    }
 }
 
 

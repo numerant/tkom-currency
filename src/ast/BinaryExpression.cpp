@@ -23,6 +23,13 @@ Value BinaryExpression::calculate() const
     return calculate(leftValue, rightValue);
 }
 
+Value BinaryExpression::calculate(std::string targetCurr) const
+{
+    const auto leftValue = leftOperand->calculate(targetCurr);
+    const auto rightValue = rightOperand->calculate(targetCurr);
+    return calculate(leftValue, rightValue);
+}
+
 std::string BinaryExpression::toString() const
 {
     using ast::toString;
@@ -41,4 +48,6 @@ Value BinaryExpression::calculate(Value leftValue, Value rightValue) const
 
     throw std::runtime_error("Unknown operator");
 }
+
+
 

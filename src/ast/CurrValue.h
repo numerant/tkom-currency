@@ -15,7 +15,7 @@ namespace ast
         CurrValue(NumValue value, std::string currency, data::ExchangeRateStorage *storage);
         CurrValue convertTo(std::string targetCurrency);
         std::string getCurrency();
-        std::string toString();
+        std::string toString() const;
 
         CurrValue operator+(CurrValue b);
         CurrValue operator-(CurrValue b);

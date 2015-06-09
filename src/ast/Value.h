@@ -1,6 +1,7 @@
 #ifndef VALUE_H
 #define	VALUE_H
 
+#include <sstream>
 #include "NumValue.h"
 #include "CurrValue.h"
 
@@ -17,9 +18,9 @@ namespace ast
     {
     public:
         Value(NumValue numeric);
-        Value(CurrValue currency, std::string targetCurrency, data::ExchangeRateStorage *storage);
+        Value(CurrValue currency);
 
-        std::string toString();
+        std::string toString() const;
         Value& operator=(Value b);
         Value operator+(Value b);
         Value operator-(Value b);
@@ -31,7 +32,7 @@ namespace ast
         ValueType type;
         NumValue numeric;
         CurrValue currency;
-        data::ExchangeRateStorage *storage;
+        //data::ExchangeRateStorage *storage;
     };
 
 }

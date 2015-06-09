@@ -21,6 +21,7 @@ namespace ast
         ~BinaryExpression();
 
         Value calculate() const override;
+        Value calculate(std::string targetCurr) const override;
         std::string toString() const override;
 
     private:

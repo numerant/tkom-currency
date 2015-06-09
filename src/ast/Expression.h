@@ -12,6 +12,7 @@ namespace ast
     public:
         virtual ~Expression();
         virtual Value calculate() const = 0;
+        virtual Value calculate(std::string targetCurr) const = 0;
         virtual std::string toString() const = 0;
     };
 

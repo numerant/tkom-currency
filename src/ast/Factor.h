@@ -10,16 +10,27 @@
 namespace ast
 {
 
+    enum class FactorType
+    {
+        Expression,
+        Value,
+    };
+
     class Factor : public Term
     {
     public:
         Factor(std::unique_ptr<Expression> operand);
+        Factor(Value value);
         ~Factor();
 
         Value calculate() const override;
+        Value calculate(std::string targetCurr) const override;
+
         std::string toString() const override;
     private:
+        FactorType type;
         std::unique_ptr<Expression> operand;
+        Value value;
     };
 
 }

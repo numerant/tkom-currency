@@ -2,6 +2,7 @@
 #define	PARSER_H
 
 #include <memory>
+#include <iostream>
 #include "Scanner.h"
 #include "../ast/NumValue.h"
 #include "../ast/Program.h"

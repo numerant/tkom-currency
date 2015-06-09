@@ -6,13 +6,12 @@ Value::Value(NumValue numeric)
 {
     this->numeric = numeric;
     this->type = ValueType::Numeric;
-    this->storage = nullptr;
+    //this->storage = nullptr;
 }
 
-Value::Value(CurrValue currency_, std::string targetCurrency, data::ExchangeRateStorage *storage)
-: currency(currency_.convertTo(targetCurrency))
+Value::Value(CurrValue currency)
 {
-    this->storage = storage;
+    this->currency = currency;
     this->type = ValueType::Currency;
 }
 
@@ -94,9 +93,16 @@ Value Value::operator/(Value divisor)
     return newValue;
 }
 
-std::string Value::toString()
+std::string Value::toString() const
 {
-
+    if (type == ValueType::Currency)
+        return currency.toString();
+    else
+    {
+        std::stringstream str;
+        str << numeric /* << std::setw(precision) */;
+        return str.str();
+    }
 }
 
 void Value::throwInvalidOperation()

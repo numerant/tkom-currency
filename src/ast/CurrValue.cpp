@@ -38,7 +38,7 @@ std::string CurrValue::getCurrency()
     return currency;
 }
 
-std::string CurrValue::toString()
+std::string CurrValue::toString() const
 {
     std::stringstream str;
     str << value /* << std::setw(precision) */ << " " << currency;
