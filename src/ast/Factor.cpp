@@ -31,7 +31,7 @@ Value Factor::calculate(std::string targetCurr) const
 {
     if (type == FactorType::Expression)
         return operand->calculate(targetCurr);
-    else return value;
+    else return value.convertTo(targetCurr);
 }
 
 

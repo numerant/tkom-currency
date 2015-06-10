@@ -44,7 +44,7 @@ namespace parser
         std::unique_ptr<ast::FuncDefinition> readFuncDefinition();
         std::unique_ptr<ast::InstrSequence> readInstrSequence();
         std::unique_ptr<ast::NumVarDeclaration> readNumVarDeclaration();
-        std::unique_ptr<ast::CurrVarDeclaration> readCurrVarDeclaration();
+        std::unique_ptr<ast::CurrVarDeclaration> readCurrVarDeclaration(Token first);
         std::unique_ptr<ast::Expression> readExpression();
         std::unique_ptr<ast::Expression> readBinaryExpression(std::unique_ptr<ast::Expression> leftExpr);
         std::unique_ptr<ast::Expression> readTerm();

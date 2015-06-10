@@ -7,7 +7,6 @@ Value::Value()
     this->type = ValueType::Undefined;
 }
 
-
 Value::Value(NumValue numeric)
 {
     this->numeric = numeric;
@@ -25,7 +24,6 @@ ValueType Value::getType()
 {
     return type;
 }
-
 
 Value& Value::operator=(Value assigned)
 {
@@ -85,13 +83,13 @@ Value Value::operator*(Value multiplier)
     if (multiplier.type == ValueType::Currency && newValue.type == ValueType::Currency)
         throwInvalidOperation(multiplier);
 
-    if (multiplier.type == ValueType::Currency && newValue.type == ValueType::Numeric  )
+    if (multiplier.type == ValueType::Currency && newValue.type == ValueType::Numeric)
     {
         newValue.currency = multiplier.currency.convertTo(multiplier.currency.getCurrency())
-        * newValue.numeric;
+                * newValue.numeric;
         newValue.type = ValueType::Currency;
     }
-    else if (multiplier.type == ValueType::Numeric && newValue.type == ValueType::Currency  )
+    else if (multiplier.type == ValueType::Numeric && newValue.type == ValueType::Currency)
         newValue.currency = newValue.currency.convertTo(newValue.currency.getCurrency())
         * multiplier.numeric;
     else
@@ -127,6 +125,21 @@ std::string Value::toString() const
         str << numeric /* << std::setw(precision) */;
         return str.str();
     }
+}
+
+Value Value::convertTo(std::string currency_) const
+{
+    Value newVal;
+    if (type == ValueType::Currency)
+    {
+//        newVal.currency = this->currency.convertTo(currency_);
+//        newVal.type = ValueType::Currency;
+//        newVal.numeric = numeric;
+//        return newVal;
+        auto xyz = this->currency.convertTo(currency_);
+        return Value(xyz);
+    }
+    return *this;
 }
 
 void Value::throwInvalidOperation(Value second)

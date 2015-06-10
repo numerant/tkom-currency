@@ -72,13 +72,14 @@ std::unique_ptr<ast::Instruction> Parser::readInstruction()
     //    else if (checkTokenValue("WHILE"))
     //        return readLoopStatement();
     //
-    //    Token first = requireToken(Token::Type::AlphaNum);
-    //    if (checkTokenValue("="))
-    //        return readAssignment(first);
-    //    else if (checkTokenValue("("))
-    //        return readFuncCall(first);
-    //    else if (checkTokenType(Token::Type::AlphaNum))
-    //        return readNamedVarDeclaration(first);
+        Token first = requireToken(Token::Type::AlphaNum);
+        advance();
+        /*if (checkTokenValue("="))
+            return readAssignment(first);
+        else if (checkTokenValue("("))
+            return readFuncCall(first);
+        else*/ if (checkTokenType(Token::Type::AlphaNum))
+            return readCurrVarDeclaration(first);
 }
 
 std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
@@ -195,7 +196,6 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
         throwOnUnexpectedInput();
     advance();
     auto expression = readExpression();
-    //advance();
 //
 //    std::cout << expression->toString() << std::endl;
 //    std::cout << expression->calculate().toString() << std::endl;
@@ -203,17 +203,15 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
     return std::make_unique<ast::NumVarDeclaration>(varName, std::move(expression), &varStorage);
 }
 
-std::unique_ptr<ast::CurrVarDeclaration> Parser::readCurrVarDeclaration()
+std::unique_ptr<ast::CurrVarDeclaration> Parser::readCurrVarDeclaration(Token first)
 {
-    std::string currName = requireToken(Token::Type::AlphaNum).valueToString();
-    advance();
+    std::string currName = first.valueToString();
     std::string varName = requireToken(Token::Type::AlphaNum).valueToString();
     advance();
     if (!checkTokenValue("="))
         throwOnUnexpectedInput();
     advance();
     auto expression = readExpression();
-    advance();
 
     return std::make_unique<ast::CurrVarDeclaration>(currName, varName, std::move(expression), &varStorage);
 }

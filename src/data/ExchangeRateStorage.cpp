@@ -16,3 +16,8 @@ void ExchangeRateStorage::setRate(std::string from, std::string to, NumValue rat
     else
         storage[key] = rate;
 }
+
+void ExchangeRateStorage::throwOnUndeclaredPair(std::string from, std::string to)
+{
+    throw std::runtime_error("Currency pair exchange rate not declared: " + from + "->" + to);
+}

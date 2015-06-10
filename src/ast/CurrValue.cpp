@@ -15,7 +15,7 @@ CurrValue::CurrValue(NumValue value, std::string currency, data::ExchangeRateSto
 }
 
 
-CurrValue CurrValue::convertTo(std::string targetCurrency)
+CurrValue CurrValue::convertTo(std::string targetCurrency) const
 {
     if (this->currency == targetCurrency)
         return *this;
@@ -25,6 +25,7 @@ CurrValue CurrValue::convertTo(std::string targetCurrency)
         NumValue rate = storage->getRate(this->currency, targetCurrency);
         newValue.value *= rate;
         newValue.currency = targetCurrency;
+        return newValue;
     }
     catch (const std::out_of_range& oor)
     {

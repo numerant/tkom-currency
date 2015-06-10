@@ -7,17 +7,18 @@
 #include "../data/VariableStorage.h"
 
 #include <memory>
+#include <iostream>
 
 using namespace std;
 
 namespace ast
 {
 
-    class CurrVarDeclaration : VarDeclaration
+    class CurrVarDeclaration : public VarDeclaration
     {
     public:
         CurrVarDeclaration(string currency, string name, std::unique_ptr<Expression> asgExpr, data::VariableStorage *storage);
-        CurrVarDeclaration(string currency, string name, string asgVarName);
+        CurrVarDeclaration(string currency, string name, string asgVarName, data::VariableStorage *storage);
         int execute() const override;
     private:
         void throwOnInvalidValue(std::string name) const;

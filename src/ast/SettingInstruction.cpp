@@ -16,7 +16,6 @@ SettingInstruction::SettingInstruction(std::string currFrom, NumValue rate, std:
 int SettingInstruction::execute() const
 {
     storage->setRate(currFrom, currTo, rate);
-    std::cout << currFrom << currTo << rate;
 }
 
 std::string SettingInstruction::toString() const

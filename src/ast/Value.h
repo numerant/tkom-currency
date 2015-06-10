@@ -24,6 +24,7 @@ namespace ast
 
         ValueType getType();
         std::string toString() const;
+        Value convertTo(std::string currency) const;
         Value& operator=(Value b);
         Value operator+(Value b);
         Value operator-(Value b);

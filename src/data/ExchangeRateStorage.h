@@ -14,6 +14,7 @@ namespace data
         void setRate(std::string from, std::string to, NumValue rate);
         NumValue getRate(std::string from, std::string to);
     private:
+        void throwOnUndeclaredPair(std::string from, std::string to);
         std::map<std::pair<std::string, std::string>, NumValue> storage;
     };
 

@@ -20,7 +20,8 @@ int main(int argc, char** argv)
 //    }
 
       Parser p(std::make_unique<Scanner>(std::cin));
-      p.parse()->execute();
+      auto var1 = std::move(p.parse());
+      var1->execute();
 
     return 0;
 }

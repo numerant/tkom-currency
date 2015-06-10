@@ -13,7 +13,7 @@ namespace ast
     public:
         CurrValue();
         CurrValue(NumValue value, std::string currency, data::ExchangeRateStorage *storage);
-        CurrValue convertTo(std::string targetCurrency);
+        CurrValue convertTo(std::string targetCurrency) const;
         std::string getCurrency();
         std::string toString() const;
 
