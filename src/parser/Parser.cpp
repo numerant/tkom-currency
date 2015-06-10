@@ -263,7 +263,7 @@ std::unique_ptr<ast::Term> Parser::readFactor()
 
         return std::make_unique<Factor>(std::move(expression));
     }
-    if (checkTokenType(Token::Type::Integer))
+    else if (checkTokenType(Token::Type::Integer))
     {
         NumValue amount = readAmount()->getValue();
 
@@ -278,6 +278,13 @@ std::unique_ptr<ast::Term> Parser::readFactor()
         Value value(amount);
         return std::make_unique<Factor>(value);
     }
+    else if (checkTokenType(Token::Type::AlphaNum))
+    {
+        std::string varName = requireToken(Token::Type::AlphaNum).valueToString();
+        advance();
+        return std::make_unique<Factor>(varName, &varStorage);
+    }
+    else throwOnUnexpectedInput();
 }
 
 void Parser::throwOnUnexpectedInput()

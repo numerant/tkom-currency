@@ -3,9 +3,11 @@
 
 #include <memory>
 #include <string>
+#include <iostream>
 #include "Term.h"
 #include "Expression.h"
 #include "Value.h"
+#include "../data/VariableStorage.h"
 
 namespace ast
 {
@@ -14,6 +16,7 @@ namespace ast
     {
         Expression,
         Value,
+        Variable
     };
 
     class Factor : public Term
@@ -21,6 +24,7 @@ namespace ast
     public:
         Factor(std::unique_ptr<Expression> operand);
         Factor(Value value);
+        Factor(std::string varName, data::VariableStorage *storage);
         ~Factor();
 
         Value calculate() const override;
@@ -29,7 +33,9 @@ namespace ast
         std::string toString() const override;
     private:
         FactorType type;
+        std::string varName;
         std::unique_ptr<Expression> operand;
+        data::VariableStorage *varStorage;
         Value value;
     };
 
