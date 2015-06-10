@@ -15,6 +15,7 @@
 #include "../ast/SettingInstruction.h"
 #include "../ast/FuncDefinition.h"
 #include "../ast/NumVarDeclaration.h"
+#include "../ast/CurrVarDeclaration.h"
 #include "../ast/Amount.h"
 #include "../ast/Term.h"
 #include "../ast/BinaryTerm.h"
@@ -43,6 +44,7 @@ namespace parser
         std::unique_ptr<ast::FuncDefinition> readFuncDefinition();
         std::unique_ptr<ast::InstrSequence> readInstrSequence();
         std::unique_ptr<ast::NumVarDeclaration> readNumVarDeclaration();
+        std::unique_ptr<ast::CurrVarDeclaration> readCurrVarDeclaration();
         std::unique_ptr<ast::Expression> readExpression();
         std::unique_ptr<ast::Expression> readBinaryExpression(std::unique_ptr<ast::Expression> leftExpr);
         std::unique_ptr<ast::Expression> readTerm();
@@ -59,7 +61,8 @@ namespace parser
 
         /* Fields */
         std::unique_ptr<Scanner> scanner;
-        data::ExchangeRateStorage storage;
+        data::ExchangeRateStorage rateStorage;
+        data::VariableStorage varStorage;
     };
 
 }

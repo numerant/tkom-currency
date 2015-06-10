@@ -12,14 +12,17 @@ namespace ast
     {
         Numeric,
         Currency,
+        Undefined
     };
 
     class Value
     {
     public:
+        Value();
         Value(NumValue numeric);
         Value(CurrValue currency);
 
+        ValueType getType();
         std::string toString() const;
         Value& operator=(Value b);
         Value operator+(Value b);

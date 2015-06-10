@@ -2,6 +2,12 @@
 
 using namespace ast;
 
+Value::Value()
+{
+    this->type = ValueType::Undefined;
+}
+
+
 Value::Value(NumValue numeric)
 {
     this->numeric = numeric;
@@ -15,10 +21,19 @@ Value::Value(CurrValue currency)
     this->type = ValueType::Currency;
 }
 
+ValueType Value::getType()
+{
+    return type;
+}
+
+
 Value& Value::operator=(Value assigned)
 {
     if (this == &assigned)
         return *this;
+
+    if (this->type == ValueType::Undefined)
+        this->type = assigned.type;
 
     if (this->type != assigned.type)
         throwInvalidOperation(assigned);

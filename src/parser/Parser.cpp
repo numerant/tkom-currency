@@ -94,7 +94,7 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
     NumValue rate = readAmount()->getValue();
     std::string to = requireToken(Token::Type::AlphaNum).valueToString();
     advance();
-    return std::make_unique<ast::SettingInstruction>(from, rate, to, &storage);
+    return std::make_unique<ast::SettingInstruction>(from, rate, to, &rateStorage);
 }
 
 Operator Parser::readOperator()
@@ -195,12 +195,27 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
         throwOnUnexpectedInput();
     advance();
     auto expression = readExpression();
+    //advance();
+//
+//    std::cout << expression->toString() << std::endl;
+//    std::cout << expression->calculate().toString() << std::endl;
+
+    return std::make_unique<ast::NumVarDeclaration>(varName, std::move(expression), &varStorage);
+}
+
+std::unique_ptr<ast::CurrVarDeclaration> Parser::readCurrVarDeclaration()
+{
+    std::string currName = requireToken(Token::Type::AlphaNum).valueToString();
+    advance();
+    std::string varName = requireToken(Token::Type::AlphaNum).valueToString();
+    advance();
+    if (!checkTokenValue("="))
+        throwOnUnexpectedInput();
+    advance();
+    auto expression = readExpression();
     advance();
 
-    std::cout << expression->toString() << std::endl;
-    std::cout << expression->calculate().toString() << std::endl;
-
-    return std::make_unique<ast::NumVarDeclaration>(varName, std::move(expression));
+    return std::make_unique<ast::CurrVarDeclaration>(currName, varName, std::move(expression), &varStorage);
 }
 
 std::unique_ptr<ast::Expression> Parser::readExpression()
@@ -258,7 +273,7 @@ std::unique_ptr<ast::Term> Parser::readFactor()
         {
             std::string currency = requireToken(Token::Type::AlphaNum).valueToString();
             advance();
-            CurrValue currValue(amount, currency, &storage);
+            CurrValue currValue(amount, currency, &rateStorage);
             Value value(currValue);
             return std::make_unique<Factor>(value);
         }
