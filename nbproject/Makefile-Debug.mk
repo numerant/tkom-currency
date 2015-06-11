@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Amount.o \
+	${OBJECTDIR}/src/ast/Assignment.o \
 	${OBJECTDIR}/src/ast/BinaryExpression.o \
 	${OBJECTDIR}/src/ast/BinaryTerm.o \
 	${OBJECTDIR}/src/ast/Bracket.o \
@@ -52,7 +53,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Number.o \
 	${OBJECTDIR}/src/ast/Operator.o \
 	${OBJECTDIR}/src/ast/PrintInstruction.o \
-	${OBJECTDIR}/src/ast/PrintVar.o \
 	${OBJECTDIR}/src/ast/Program.o \
 	${OBJECTDIR}/src/ast/SettingInstruction.o \
 	${OBJECTDIR}/src/ast/Term.o \
@@ -94,6 +94,11 @@ ${OBJECTDIR}/src/ast/Amount.o: src/ast/Amount.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Amount.o src/ast/Amount.cpp
+
+${OBJECTDIR}/src/ast/Assignment.o: src/ast/Assignment.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/ast
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Assignment.o src/ast/Assignment.cpp
 
 ${OBJECTDIR}/src/ast/BinaryExpression.o: src/ast/BinaryExpression.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
@@ -174,11 +179,6 @@ ${OBJECTDIR}/src/ast/PrintInstruction.o: src/ast/PrintInstruction.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/PrintInstruction.o src/ast/PrintInstruction.cpp
-
-${OBJECTDIR}/src/ast/PrintVar.o: src/ast/PrintVar.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/ast
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/PrintVar.o src/ast/PrintVar.cpp
 
 ${OBJECTDIR}/src/ast/Program.o: src/ast/Program.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast

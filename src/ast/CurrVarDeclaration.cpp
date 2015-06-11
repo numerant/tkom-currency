@@ -1,24 +1,14 @@
 #include "CurrVarDeclaration.h"
 
-
 using namespace ast;
 
 
-CurrVarDeclaration::CurrVarDeclaration(string currency, string name, unique_ptr<Expression> asgExpr, data::VariableStorage *storage)
+CurrVarDeclaration::CurrVarDeclaration(std::string currency, std::string name, std::unique_ptr<Expression> asgExpr, data::VariableStorage *storage)
 {
     this->currency = currency;
     this->name = name;
-    this->assignmentExpr = move(asgExpr);
+    this->assignmentExpr = std::move(asgExpr);
     this->assignmentVarName = "";
-    this->varStorage = storage;
-}
-
-CurrVarDeclaration::CurrVarDeclaration(string currency, string name, string asgVarName, data::VariableStorage *storage)
-{
-    this->currency = currency;
-    this->name = name;
-    this->assignmentExpr = nullptr;
-    this->assignmentVarName = asgVarName;
     this->varStorage = storage;
 }
 
@@ -28,8 +18,6 @@ int CurrVarDeclaration::execute() const
     if (value.getType() == ValueType::Numeric)
         throwOnInvalidValue(name);
     varStorage->addVariable(name, value);
-
-    std::cout << name << " = " << value.toString() << std::endl;
 }
 
 void CurrVarDeclaration::throwOnInvalidValue(std::string name) const

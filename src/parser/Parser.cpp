@@ -27,7 +27,7 @@ std::unique_ptr<ast::Program> Parser::readProgram()
         if (!checkTokenValue(";"))
             throwOnUnexpectedInput(Token::Type::Operator);
 
-            readOperator();
+        readOperator();
 
         if (!checkTokenType(Token::Type::Eof))
             instr = readInstructionLink(std::move(instr));
@@ -61,8 +61,8 @@ std::unique_ptr<ast::Instruction> Parser::readInstruction()
 {
     if (checkTokenValue("NUM"))
         return readNumVarDeclaration();
-        else if (checkTokenValue("PRINT"))
-            return readPrintInstr();
+    else if (checkTokenValue("PRINT"))
+        return readPrintInstr();
     //    else if (checkTokenValue("$"))
     //        return readAssignment();
     //    else if (checkTokenValue("IF"))
@@ -70,14 +70,14 @@ std::unique_ptr<ast::Instruction> Parser::readInstruction()
     //    else if (checkTokenValue("WHILE"))
     //        return readLoopStatement();
     //
-        Token first = requireToken(Token::Type::AlphaNum);
-        advance();
-        /*if (checkTokenValue("="))
-            return readAssignment(first);
-        else if (checkTokenValue("("))
-            return readFuncCall(first);
-        else*/ if (checkTokenType(Token::Type::AlphaNum))
-            return readCurrVarDeclaration(first);
+    Token first = requireToken(Token::Type::AlphaNum);
+    advance();
+    if (checkTokenValue("="))
+        return readAssignment(first);
+    /*else if (checkTokenValue("("))
+        return readFuncCall(first);
+    else*/ if (checkTokenType(Token::Type::AlphaNum))
+        return readCurrVarDeclaration(first);
 }
 
 std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
@@ -122,9 +122,9 @@ std::unique_ptr<ast::Amount> Parser::readAmount()
     std::string fraction = "0";
     if (checkTokenValue("-"))
     {
-//        advance();
-//        if (!checkTokenValue("-"))
-//            throwOnUnexpectedInput();
+        //        advance();
+        //        if (!checkTokenValue("-"))
+        //            throwOnUnexpectedInput();
         advance();
         negative = true;
     }
@@ -140,9 +140,9 @@ std::unique_ptr<ast::Amount> Parser::readAmount()
     if (negative)
     {
         integer *= -1;
-//        if (!checkTokenValue(")"))
-//            throwOnUnexpectedInput();
-//        advance();
+        //        if (!checkTokenValue(")"))
+        //            throwOnUnexpectedInput();
+        //        advance();
     }
 
     return std::make_unique<ast::Amount>(integer, fraction);
@@ -279,6 +279,16 @@ std::unique_ptr<ast::PrintInstruction> Parser::readPrintInstr()
     return std::make_unique<ast::PrintInstruction>(varName, &varStorage);
 }
 
+std::unique_ptr<ast::Assignment> Parser::readAssignment(Token first)
+{
+    std::string varName = first.valueToString();
+    if (!checkTokenValue("="))
+        throwOnUnexpectedInput();
+    advance();
+    auto expression = readExpression();
+
+    return std::make_unique<ast::Assignment>(varName, std::move(expression), &varStorage);
+}
 
 void Parser::throwOnUnexpectedInput()
 {

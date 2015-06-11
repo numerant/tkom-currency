@@ -3,11 +3,10 @@
 
 #include <memory>
 #include <iostream>
-
+#include "../data/VariableStorage.h"
 #include "VarDeclaration.h"
 #include "Value.h"
 #include "Expression.h"
-#include "../data/VariableStorage.h"
 
 namespace ast
 {
@@ -16,7 +15,6 @@ namespace ast
     {
     public:
         NumVarDeclaration(std::string name, std::unique_ptr<Expression> asgExpr, data::VariableStorage *storage);
-        //NumVarDeclaration(std::string name, std::string asgVarName);
         int execute() const override;
 
     private:

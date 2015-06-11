@@ -10,10 +10,10 @@ PrintInstruction::PrintInstruction(std::string varName, data::VariableStorage* v
 
 int PrintInstruction::execute() const
 {
-    std::cout << varName << " = " << varStorage->getValue(varName).toString() << std::endl;
+    std::cout <<"|" << varName << " == " << varStorage->getValue(varName).toString() << std::endl;
 }
 
 std::string PrintInstruction::toString() const
 {
-
+    return "PRINT " + varName;
 }

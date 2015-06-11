@@ -142,6 +142,13 @@ Value Value::convertTo(std::string currency_) const
     return *this;
 }
 
+std::string Value::getCurrencyName()
+{
+    if (type == ValueType::Currency)
+        return currency.getCurrency();
+    else return "";
+}
+
 void Value::throwInvalidOperation(Value second)
 {
     throw std::runtime_error("Invalid arithmetic operation between: " + this->toString() + " and " + second.toString());

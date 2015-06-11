@@ -21,7 +21,9 @@
 #include "../ast/Term.h"
 #include "../ast/BinaryTerm.h"
 #include "../ast/Factor.h"
+#include "../ast/Assignment.h"
 #include "../data/ExchangeRateStorage.h"
+
 
 namespace parser
 {
@@ -52,6 +54,7 @@ namespace parser
         std::unique_ptr<ast::Term> readBinaryTerm(std::unique_ptr<ast::Term> leftTerm);
         std::unique_ptr<ast::Term> readFactor();
         std::unique_ptr<ast::PrintInstruction> readPrintInstr();
+        std::unique_ptr<ast::Assignment> readAssignment(Token first);
 
         /* Helper methods */
         void throwOnUnexpectedInput();
