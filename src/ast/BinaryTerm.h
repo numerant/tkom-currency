@@ -9,7 +9,7 @@
 
 namespace ast
 {
-
+    /* Represents term with two operands. */
     class BinaryTerm : public Term
     {
     public:

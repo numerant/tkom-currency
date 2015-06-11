@@ -6,10 +6,9 @@
 #include "InputInstruction.h"
 #include "InstrSequence.h"
 
-
 namespace ast
 {
-
+    /* Class representing function definition instruction. */
     class FuncDefinition : public InputInstruction
     {
     public:

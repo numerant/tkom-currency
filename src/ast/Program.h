@@ -5,7 +5,7 @@
 
 namespace ast
 {
-
+    /* Class representing program constisting of multiple code lines. */
     class Program
     {
     public:

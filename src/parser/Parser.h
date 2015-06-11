@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <iostream>
-#include "Scanner.h"
 #include "../ast/NumValue.h"
 #include "../ast/Program.h"
 #include "../ast/Expression.h"
@@ -23,11 +22,11 @@
 #include "../ast/Factor.h"
 #include "../ast/Assignment.h"
 #include "../data/ExchangeRateStorage.h"
-
+#include "Scanner.h"
 
 namespace parser
 {
-
+    /* Main parser class. */
     class Parser
     {
     public:
@@ -41,7 +40,7 @@ namespace parser
         std::unique_ptr<ast::Program> readInputInstr();
         std::unique_ptr<ast::Instruction> readInstruction();
         std::unique_ptr<ast::SettingInstruction> readSettingInstr();
-        ast::Operator readOperator();
+        std::unique_ptr<ast::PrintInstruction> readPrintInstr();
         std::unique_ptr<ast::Bracket> readBracket();
         std::unique_ptr<ast::Amount> readAmount();
         std::unique_ptr<ast::FuncDefinition> readFuncDefinition();
@@ -53,8 +52,8 @@ namespace parser
         std::unique_ptr<ast::Expression> readTerm();
         std::unique_ptr<ast::Term> readBinaryTerm(std::unique_ptr<ast::Term> leftTerm);
         std::unique_ptr<ast::Term> readFactor();
-        std::unique_ptr<ast::PrintInstruction> readPrintInstr();
         std::unique_ptr<ast::Assignment> readAssignment(Token first);
+        ast::Operator readOperator();
 
         /* Helper methods */
         void throwOnUnexpectedInput();

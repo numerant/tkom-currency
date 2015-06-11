@@ -7,17 +7,12 @@
 
 namespace ast
 {
-
+    /* Generic class representing InputInstruction production. */
     class InputInstruction : public Program
     {
     public:
         virtual ~InputInstruction();
 
-        int execute() const override;
-        std::string toString() const override;
-    private:
-
-        std::string value;
     };
 
 } /* namespace ast */

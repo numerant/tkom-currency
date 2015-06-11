@@ -4,14 +4,13 @@
 #include <memory>
 #include <string>
 #include <iostream>
+#include "../data/VariableStorage.h"
 #include "Term.h"
 #include "Expression.h"
 #include "Value.h"
-#include "../data/VariableStorage.h"
 
 namespace ast
 {
-
     enum class FactorType
     {
         Expression,
@@ -19,9 +18,11 @@ namespace ast
         Variable
     };
 
+    /* Class representing factor in Term production. */
     class Factor : public Term
     {
     public:
+        /* Each type of Factor requires its own constructor. */
         Factor(std::unique_ptr<Expression> operand);
         Factor(Value value);
         Factor(std::string varName, data::VariableStorage *storage);
@@ -32,6 +33,7 @@ namespace ast
 
         std::string toString() const override;
     private:
+        /* Fields */
         FactorType type;
         std::string varName;
         std::unique_ptr<Expression> operand;

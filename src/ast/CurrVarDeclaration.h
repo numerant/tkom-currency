@@ -11,15 +11,18 @@
 
 namespace ast
 {
-
+    /* Represents currency variable declaration instruction */
     class CurrVarDeclaration : public VarDeclaration
     {
     public:
         CurrVarDeclaration(std::string currency, std::string name, std::unique_ptr<Expression> asgExpr, data::VariableStorage *storage);
         int execute() const override;
+        std::string toString() const override;
+
     private:
         void throwOnInvalidValue(std::string name) const;
 
+        /* Fields */
         std::string currency;
         std::string name;
         std::unique_ptr<Expression> assignmentExpr;

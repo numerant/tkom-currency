@@ -3,15 +3,14 @@
 
 #include <memory>
 #include <string>
-
+#include "Bracket.h"
 #include "Expression.h"
 #include "Operator.h"
 #include "Value.h"
 
-
 namespace ast
 {
-
+    /* Represents expression with two operands. */
     class BinaryExpression : public Expression
     {
     public:

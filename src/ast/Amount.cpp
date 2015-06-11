@@ -12,6 +12,7 @@ Amount::Amount(int integer, std::string fraction)
     value = integer;
     NumValue frac = std::stol(fraction);
 
+    /* Convert string fraction into "0.xxx" numeric value */
     for (int i = 0; i < fraction.length(); i++)
         frac = frac / 10;
 
@@ -26,6 +27,6 @@ NumValue Amount::getValue() const
 std::string Amount::toString() const
 {
     std::stringstream str;
-    str << value /* << std::setw(precision) */;
+    str << value;
     return str.str();
 }

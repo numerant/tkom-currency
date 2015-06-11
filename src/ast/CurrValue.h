@@ -2,12 +2,12 @@
 #define	CURRVALUE_H
 
 #include <string>
-#include "NumValue.h"
 #include "../data/ExchangeRateStorage.h"
+#include "NumValue.h"
 
 namespace ast
 {
-
+    /* Represents value with associated currency name. */
     class CurrValue
     {
     public:

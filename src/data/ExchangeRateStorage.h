@@ -7,7 +7,7 @@
 
 namespace data
 {
-
+    /* Class responsible for storing information about exchange rates. */
     class ExchangeRateStorage
     {
     public:
@@ -15,6 +15,8 @@ namespace data
         NumValue getRate(std::string from, std::string to);
     private:
         void throwOnUndeclaredPair(std::string from, std::string to);
+
+        /* Fields */
         std::map<std::pair<std::string, std::string>, NumValue> storage;
     };
 

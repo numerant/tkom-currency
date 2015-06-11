@@ -8,7 +8,7 @@ using namespace std;
 
 namespace parser
 {
-
+    /* Main scanner class. */
     class Scanner
     {
     public:

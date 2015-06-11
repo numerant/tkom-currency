@@ -1,5 +1,4 @@
 #include "BinaryExpression.h"
-#include "Bracket.h"
 
 using namespace ast;
 

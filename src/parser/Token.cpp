@@ -82,6 +82,23 @@ std::string Token::toString()
     return typeToString() + "(\"" + valueToString() + "\")";
 }
 
+std::string Token::toString(Type type)
+{
+    switch (type)
+    {
+        case Type::AlphaNum:
+            return "AlphaNum";
+        case Type::Bracket:
+            return "Bracket";
+        case Type::Eof:
+            return "Eof";
+        case Type::Integer:
+            return "Integer";
+        case Type::Operator:
+            return "Operator";
+    }
+}
+
 std::string Token::valueToString()
 {
     switch (type)

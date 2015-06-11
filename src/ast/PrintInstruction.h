@@ -8,7 +8,7 @@
 
 namespace ast
 {
-
+    /* Class representing variable print instruction. */
     class PrintInstruction : public Instruction
     {
     public:

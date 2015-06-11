@@ -6,7 +6,8 @@
 
 namespace ast
 {
-
+    /* Class representing term, which is only instantiated
+     * either as Factor or as BinaryExpression. */
     class Term : public Expression
     {
     public:

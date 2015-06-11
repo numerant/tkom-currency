@@ -3,10 +3,9 @@
 
 #include "InputInstruction.h"
 
-
 namespace ast
 {
-
+    /* Class representing instruction that might occur both globally and in function definition. */
     class Instruction : public InputInstruction
     {
     public:

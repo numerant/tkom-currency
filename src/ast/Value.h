@@ -7,7 +7,7 @@
 
 namespace ast
 {
-
+    /* Value used by Expression and all of its derivatives. */
     enum class ValueType
     {
         Numeric,

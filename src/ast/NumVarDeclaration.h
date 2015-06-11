@@ -10,12 +10,13 @@
 
 namespace ast
 {
-
+    /* Class representing declaration of numeric variable. */
     class NumVarDeclaration : public VarDeclaration
     {
     public:
         NumVarDeclaration(std::string name, std::unique_ptr<Expression> asgExpr, data::VariableStorage *storage);
         int execute() const override;
+        std::string toString() const override;
 
     private:
         void throwOnInvalidValue(std::string name) const;

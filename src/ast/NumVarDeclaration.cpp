@@ -18,6 +18,11 @@ int NumVarDeclaration::execute() const
     varStorage->addVariable(name, value);
 }
 
+std::string NumVarDeclaration::toString() const
+{
+    return "NUM" + name + " = " + assignmentExpr->toString();
+}
+
 void NumVarDeclaration::throwOnInvalidValue(std::string name) const
 {
     throw std::runtime_error("Expected numeric value, but got currency instead - in declaration of: " + name);

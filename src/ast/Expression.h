@@ -6,7 +6,7 @@
 
 namespace ast
 {
-
+    /* Generic class representing expression. */
     class Expression
     {
     public:

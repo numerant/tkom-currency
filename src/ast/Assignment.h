@@ -3,14 +3,13 @@
 
 #include <string>
 #include <memory>
+#include "../data/VariableStorage.h"
 #include "Instruction.h"
 #include "Expression.h"
-#include "../data/VariableStorage.h"
-
 
 namespace ast
 {
-
+    /* Represents assignment instruction (like "var1 = var2 * 2"). */
     class Assignment : public Instruction
     {
     public:

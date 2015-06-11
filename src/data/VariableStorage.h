@@ -4,9 +4,10 @@
 #include <unordered_map>
 #include <utility>
 #include "../ast/Value.h"
+
 namespace data
 {
-
+    /* Class responsible for storing variables. */
     class VariableStorage
     {
     public:

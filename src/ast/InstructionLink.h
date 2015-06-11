@@ -6,7 +6,8 @@
 
 namespace ast
 {
-
+    /* Class linking multiple instructions into one program
+     * (like BinaryExpression, but for instructions). */
     class InstructionLink : public Program
     {
     public:
@@ -18,7 +19,6 @@ namespace ast
         std::string toString() const override;
 
     private:
-
         /* Fields */
         std::unique_ptr<Program> leftOperand;
         std::unique_ptr<Program> rightOperand;

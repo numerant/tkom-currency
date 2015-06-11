@@ -20,6 +20,11 @@ int CurrVarDeclaration::execute() const
     varStorage->addVariable(name, value);
 }
 
+std::string CurrVarDeclaration::toString() const
+{
+    return currency + " " + name + " = " + assignmentExpr->toString();
+}
+
 void CurrVarDeclaration::throwOnInvalidValue(std::string name) const
 {
     throw std::runtime_error("Expected currency value, but got numeric instead - in declaration of: " + name);

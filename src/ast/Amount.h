@@ -5,11 +5,10 @@
 #include <string>
 #include "NumValue.h"
 
-namespace bmp = boost::multiprecision;
-
 namespace ast
 {
 
+    /* Represents amount - with fraction (like 2.6345) or not (like 3). */
     class Amount
     {
     public:

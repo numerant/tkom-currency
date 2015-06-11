@@ -5,7 +5,7 @@
 
 namespace ast
 {
-
+    /* Class representing instruction sequence in function. */
     class InstrSequence
     {
     public:

@@ -297,8 +297,8 @@ void Parser::throwOnUnexpectedInput()
 
 void Parser::throwOnUnexpectedInput(Token::Type expected)
 {
-    throw std::runtime_error("Unexpected token: " + scanner->getToken().toString());
-    //+ ", expected one was: " + Token::toString(expected));
+    throw std::runtime_error("Unexpected token: " + scanner->getToken().toString()
+    + ", expected one was: " + Token::toString(expected));
 }
 
 Token Parser::requireToken(Token::Type expected)

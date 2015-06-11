@@ -21,7 +21,6 @@
       <itemPath>src/ast/InstructionLink.h</itemPath>
       <itemPath>src/ast/NumValue.h</itemPath>
       <itemPath>src/ast/NumVarDeclaration.h</itemPath>
-      <itemPath>src/ast/Number.h</itemPath>
       <itemPath>src/ast/Operator.h</itemPath>
       <itemPath>src/parser/Parser.h</itemPath>
       <itemPath>src/ast/PrintInstruction.h</itemPath>
@@ -57,7 +56,6 @@
       <itemPath>src/ast/Instruction.cpp</itemPath>
       <itemPath>src/ast/InstructionLink.cpp</itemPath>
       <itemPath>src/ast/NumVarDeclaration.cpp</itemPath>
-      <itemPath>src/ast/Number.cpp</itemPath>
       <itemPath>src/ast/Operator.cpp</itemPath>
       <itemPath>src/parser/Parser.cpp</itemPath>
       <itemPath>src/ast/PrintInstruction.cpp</itemPath>
@@ -166,10 +164,6 @@
       <item path="src/ast/NumVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/NumVarDeclaration.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ast/Number.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ast/Number.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/Operator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -304,10 +298,6 @@
       <item path="src/ast/NumVarDeclaration.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/NumVarDeclaration.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ast/Number.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ast/Number.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/Operator.cpp" ex="false" tool="1" flavor2="0">
       </item>

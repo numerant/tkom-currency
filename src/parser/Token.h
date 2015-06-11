@@ -8,7 +8,7 @@
 
 namespace parser
 {
-
+    /* Token representation in scanner class. */
     class Token
     {
     public:
@@ -35,6 +35,7 @@ namespace parser
 
         std::string typeToString();
         std::string toString();
+        static std::string toString(Type type);
         std::string valueToString();
     private:
 

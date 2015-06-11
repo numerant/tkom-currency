@@ -8,7 +8,7 @@
 
 namespace ast
 {
-
+    /* Class representing setting instruction. */
     class SettingInstruction : public InputInstruction
     {
     public:
