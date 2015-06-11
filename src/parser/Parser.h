@@ -65,6 +65,7 @@ namespace parser
         std::unique_ptr<Scanner> scanner;
         data::ExchangeRateStorage rateStorage;
         data::VariableStorage varStorage;
+        int precision;
     };
 
 }

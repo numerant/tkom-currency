@@ -23,12 +23,10 @@ std::unique_ptr<ast::Program> Parser::readProgram()
     auto instr = readInputInstr();
     while (true)
     {
-        if (!checkTokenValue(";") && !checkTokenValue("}"))
+        /* Every line must end with semicolon */
+        if (!checkTokenValue(";"))
             throwOnUnexpectedInput(Token::Type::Operator);
 
-        if (checkTokenType(Token::Type::Bracket))
-            readBracket();
-        else
             readOperator();
 
         if (!checkTokenType(Token::Type::Eof))
@@ -36,7 +34,7 @@ std::unique_ptr<ast::Program> Parser::readProgram()
         else
             break;
     }
-
+    /* Return instruction tree ready to execute */
     return instr;
 }
 
@@ -84,7 +82,9 @@ std::unique_ptr<ast::Instruction> Parser::readInstruction()
 
 std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
 {
+    /* Consume SET */
     advance();
+    /* Get currency name */
     std::string from = requireToken(Token::Type::AlphaNum).valueToString();
     advance();
 
@@ -92,9 +92,12 @@ std::unique_ptr<ast::SettingInstruction> Parser::readSettingInstr()
         throwOnUnexpectedInput();
     advance();
 
+    /* Get exchange rate */
     NumValue rate = readAmount()->getValue();
+    /* Get name of another currency */
     std::string to = requireToken(Token::Type::AlphaNum).valueToString();
     advance();
+
     return std::make_unique<ast::SettingInstruction>(from, rate, to, &rateStorage);
 }
 
@@ -117,11 +120,11 @@ std::unique_ptr<ast::Amount> Parser::readAmount()
     bool negative = false;
     long int integer;
     std::string fraction = "0";
-    if (checkTokenValue("("))
+    if (checkTokenValue("-"))
     {
-        advance();
-        if (!checkTokenValue("-"))
-            throwOnUnexpectedInput();
+//        advance();
+//        if (!checkTokenValue("-"))
+//            throwOnUnexpectedInput();
         advance();
         negative = true;
     }
@@ -137,9 +140,9 @@ std::unique_ptr<ast::Amount> Parser::readAmount()
     if (negative)
     {
         integer *= -1;
-        if (!checkTokenValue(")"))
-            throwOnUnexpectedInput();
-        advance();
+//        if (!checkTokenValue(")"))
+//            throwOnUnexpectedInput();
+//        advance();
     }
 
     return std::make_unique<ast::Amount>(integer, fraction);
@@ -243,7 +246,7 @@ std::unique_ptr<ast::Term> Parser::readFactor()
 
         return std::make_unique<Factor>(std::move(expression));
     }
-    else if (checkTokenType(Token::Type::Integer))
+    else if (checkTokenType(Token::Type::Integer) || checkTokenValue("-"))
     {
         NumValue amount = readAmount()->getValue();
 

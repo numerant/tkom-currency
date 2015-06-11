@@ -5,7 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>src/ast/Amount.h</itemPath>
-      <itemPath>src/ast/Assignment.h</itemPath>
       <itemPath>src/ast/BinaryExpression.h</itemPath>
       <itemPath>src/ast/BinaryTerm.h</itemPath>
       <itemPath>src/ast/Bracket.h</itemPath>
@@ -43,7 +42,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>src/ast/Amount.cpp</itemPath>
-      <itemPath>src/ast/Assignment.cpp</itemPath>
       <itemPath>src/ast/BinaryExpression.cpp</itemPath>
       <itemPath>src/ast/BinaryTerm.cpp</itemPath>
       <itemPath>src/ast/Bracket.cpp</itemPath>
@@ -110,10 +108,6 @@
       <item path="src/ast/Amount.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Amount.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ast/Assignment.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ast/Assignment.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/BinaryExpression.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -252,10 +246,6 @@
       <item path="src/ast/Amount.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Amount.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ast/Assignment.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ast/Assignment.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/BinaryExpression.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -36,7 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/ast/Amount.o \
-	${OBJECTDIR}/src/ast/Assignment.o \
 	${OBJECTDIR}/src/ast/BinaryExpression.o \
 	${OBJECTDIR}/src/ast/BinaryTerm.o \
 	${OBJECTDIR}/src/ast/Bracket.o \
@@ -95,11 +94,6 @@ ${OBJECTDIR}/src/ast/Amount.o: src/ast/Amount.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/ast
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Amount.o src/ast/Amount.cpp
-
-${OBJECTDIR}/src/ast/Assignment.o: src/ast/Assignment.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/ast
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ast/Assignment.o src/ast/Assignment.cpp
 
 ${OBJECTDIR}/src/ast/BinaryExpression.o: src/ast/BinaryExpression.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/ast
