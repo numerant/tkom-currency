@@ -6,8 +6,6 @@
 #include "InputInstruction.h"
 #include "../data/ExchangeRateStorage.h"
 
-namespace bmp = boost::multiprecision;
-
 namespace ast
 {
 

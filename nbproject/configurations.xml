@@ -24,6 +24,7 @@
       <itemPath>src/ast/Number.h</itemPath>
       <itemPath>src/ast/Operator.h</itemPath>
       <itemPath>src/parser/Parser.h</itemPath>
+      <itemPath>src/ast/PrintInstruction.h</itemPath>
       <itemPath>src/ast/PrintVar.h</itemPath>
       <itemPath>src/ast/Program.h</itemPath>
       <itemPath>src/parser/Scanner.h</itemPath>
@@ -60,6 +61,7 @@
       <itemPath>src/ast/Number.cpp</itemPath>
       <itemPath>src/ast/Operator.cpp</itemPath>
       <itemPath>src/parser/Parser.cpp</itemPath>
+      <itemPath>src/ast/PrintInstruction.cpp</itemPath>
       <itemPath>src/ast/PrintVar.cpp</itemPath>
       <itemPath>src/ast/Program.cpp</itemPath>
       <itemPath>src/parser/Scanner.cpp</itemPath>
@@ -174,6 +176,10 @@
       <item path="src/ast/Operator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Operator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/PrintInstruction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/PrintInstruction.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/PrintVar.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -312,6 +318,10 @@
       <item path="src/ast/Operator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/ast/Operator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ast/PrintInstruction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ast/PrintInstruction.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ast/PrintVar.cpp" ex="false" tool="1" flavor2="0">
       </item>

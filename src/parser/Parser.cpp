@@ -63,8 +63,8 @@ std::unique_ptr<ast::Instruction> Parser::readInstruction()
 {
     if (checkTokenValue("NUM"))
         return readNumVarDeclaration();
-    //    else if (checkTokenValue("PRINT"))
-    //        return readPrintInstr();
+        else if (checkTokenValue("PRINT"))
+            return readPrintInstr();
     //    else if (checkTokenValue("$"))
     //        return readAssignment();
     //    else if (checkTokenValue("IF"))
@@ -167,24 +167,7 @@ std::unique_ptr<ast::FuncDefinition> Parser::readFuncDefinition()
 
 std::unique_ptr<ast::InstrSequence> Parser::readInstrSequence()
 {
-    //    auto instr = readInstruction();
-    //    while ( true )
-    //    {
-    //        if (!checkTokenValue(";") && !checkTokenValue("}"))
-    //            throwOnUnexpectedInput(Token::Type::Operator);
-    //
-    //        if(checkTokenType(Token::Type::Bracket))
-    //            readBracket();
-    //        else
-    //            readOperator();
-    //
-    //        if (!checkTokenType(Token::Type::Eof))
-    //            instr = readInstructionLink(std::move(instr));
-    //        else
-    //            break;
-    //    }
-    //
-    //    return instr;
+    //    TODO implement
 }
 
 std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
@@ -196,9 +179,6 @@ std::unique_ptr<ast::NumVarDeclaration> Parser::readNumVarDeclaration()
         throwOnUnexpectedInput();
     advance();
     auto expression = readExpression();
-//
-//    std::cout << expression->toString() << std::endl;
-//    std::cout << expression->calculate().toString() << std::endl;
 
     return std::make_unique<ast::NumVarDeclaration>(varName, std::move(expression), &varStorage);
 }
@@ -286,6 +266,16 @@ std::unique_ptr<ast::Term> Parser::readFactor()
     }
     else throwOnUnexpectedInput();
 }
+
+std::unique_ptr<ast::PrintInstruction> Parser::readPrintInstr()
+{
+    advance();
+    std::string varName = requireToken(Token::Type::AlphaNum).valueToString();
+    advance();
+
+    return std::make_unique<ast::PrintInstruction>(varName, &varStorage);
+}
+
 
 void Parser::throwOnUnexpectedInput()
 {

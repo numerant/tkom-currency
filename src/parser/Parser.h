@@ -16,6 +16,7 @@
 #include "../ast/FuncDefinition.h"
 #include "../ast/NumVarDeclaration.h"
 #include "../ast/CurrVarDeclaration.h"
+#include "../ast/PrintInstruction.h"
 #include "../ast/Amount.h"
 #include "../ast/Term.h"
 #include "../ast/BinaryTerm.h"
@@ -50,6 +51,7 @@ namespace parser
         std::unique_ptr<ast::Expression> readTerm();
         std::unique_ptr<ast::Term> readBinaryTerm(std::unique_ptr<ast::Term> leftTerm);
         std::unique_ptr<ast::Term> readFactor();
+        std::unique_ptr<ast::PrintInstruction> readPrintInstr();
 
         /* Helper methods */
         void throwOnUnexpectedInput();
